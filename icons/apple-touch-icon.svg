@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="96" fill="#0b0b0d"/>
+  <rect x="24" y="24" width="464" height="464" rx="80" fill="#141417" stroke="#c9a227" stroke-width="12"/>
+  <!-- simplified sword/cross -->
+  <rect x="236" y="110" width="40" height="220" rx="6" fill="#c9a227"/>
+  <rect x="170" y="175" width="172" height="36" rx="6" fill="#c9a227"/>
+  <rect x="220" y="330" width="72" height="28" rx="4" fill="#8a7020"/>
+  <circle cx="256" cy="400" r="22" fill="#c9a227"/>
+</svg>
