@@ -110,6 +110,38 @@
       margin-bottom: 1.25rem;
     }
 
+    .voice-bar {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      margin: 0.85rem 0 0.4rem;
+      flex-wrap: wrap;
+    }
+    .voice-bar select {
+      flex: 1;
+      min-width: 140px;
+      background: var(--bg-elevated);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.55rem 0.7rem;
+      font-size: 0.82rem;
+      font-family: inherit;
+    }
+    .btn-speak {
+      background: var(--accent);
+      color: #0b0b0d;
+      border: none;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .btn-speak.speaking {
+      background: #8a3020;
+      color: #fff;
+    }
+    .btn-speak:active { opacity: 0.9; }
+
+
     .nav-btn {
       background: var(--bg-elevated);
       border: 1px solid var(--border);
@@ -436,6 +468,13 @@
     </div>
     <div class="day-hint">One teaching per day · Use arrows to browse</div>
 
+    <div class="voice-bar">
+      <button class="btn btn-speak" id="speakBtn">Read Aloud</button>
+      <select id="voiceSelect" aria-label="Choose voice">
+        <option value="">Default voice</option>
+      </select>
+    </div>
+
     <div id="content"></div>
 
     <div class="actions">
@@ -454,7 +493,7 @@
       <p>Watch. Stand firm in the faith. Act like men. Be strong.</p>
       <p class="disclaimer">
         Scripture from the World English Bible (WEB), a modern public-domain translation. Free for unlimited personal and ministry use.
-        Short quotations from Charles Spurgeon, John Bunyan, Jonathan Edwards, A.W. Tozer, C.S. Lewis, Alan Redpath, Dietrich Bonhoeffer, R.C. Sproul, Dallas Willard, Larry Crabb, Chuck Swindoll, John Piper, Alistair Begg, Tom Nelson, and Tony Evans are used under fair use for personal edification and remain the property of their respective rights holders. 
+        Short quotations from Charles Spurgeon, John Bunyan, Jonathan Edwards, A.W. Tozer, C.S. Lewis, Alan Redpath, Dietrich Bonhoeffer, R.C. Sproul, Dallas Willard, Larry Crabb, Chuck Swindoll, John Piper, Alistair Begg, Tom Nelson, Tony Evans, Oswald Chambers, and Paul Washer are used under fair use for personal edification and remain the property of their respective rights holders. 
         Original devotion text is free for personal use. This is a client-side app; your favorites stay on your device.
       </p>
     </footer>
@@ -474,8 +513,8 @@
         scripture: "1 Corinthians 13:7",
         verse: "Beareth all things, believeth all things, hopeth all things, endureth all things.",
         body: `Love bears, believes, hopes, and endures. It does not quit under the weight of another person's failures. A man who loves with this kind of love becomes a place of safety and perseverance for others.`,
-        quote: "Forgiveness is not optional for those who have been forgiven.",
-        author: "Chuck Swindoll",
+        quote: "Love is not primarily a feeling; it is a commitment to act for the good of another.",
+        author: "Larry Crabb",
         charge: [
           "Bear with one person's weakness today instead of criticizing.",
           "Choose to believe and hope the best where you have grown cynical.",
@@ -504,8 +543,8 @@
         scripture: "2 Corinthians 1:3-4",
         verse: "Blessed be God, even the Father of our Lord Jesus Christ, the Father of mercies, and the God of all comfort; Who comforteth us in all our tribulation, that we may be able to comfort them which are in any trouble…",
         body: `God does not waste comfort. The comfort you receive in your own trouble is meant to be passed on. A man who has been through the dark and found God faithful becomes a channel of the same comfort to others. Isolation stops that flow.`,
-        quote: "God does not comfort us to make us comfortable, but to make us comforters.",
-        author: "Chuck Swindoll",
+        quote: "Faith is two empty hands held out to receive all of the Lord Jesus.",
+        author: "Alan Redpath",
         charge: [
           "Receive God’s comfort in your present trouble without shame.",
           "Identify one person who needs the comfort you have already received.",
@@ -519,8 +558,8 @@
         scripture: "Colossians 3:12",
         verse: "Put on therefore, as God's chosen ones, holy and beloved, a heart of compassion, kindness, lowliness, humility, and perseverance.",
         body: `Kindness is part of the clothing of the elect. It is put on deliberately, along with compassion, humility, and patience. These are the garments of those who know they are holy and beloved.`,
-        quote: "Forgiveness is not optional for those who have been forgiven.",
-        author: "Chuck Swindoll",
+        quote: "Character in a saint means the disposition of Jesus Christ persistently manifested.",
+        author: "Oswald Chambers",
         charge: [
           "Put on kindness deliberately as clothing today.",
           "Combine it with humility and perseverance.",
@@ -534,8 +573,8 @@
         scripture: "Colossians 3:15",
         verse: "And let the peace of God rule in your hearts, to which also you were called in one body, and be thankful.",
         body: `The peace of Christ is to act as umpire in the heart. Believers are called to this peace in one body. Thankfulness is the accompanying posture. When peace is displaced, something is often out of order and needs to be brought back under Christ’s rule.`,
-        quote: "Worry does not empty tomorrow of its sorrow; it empties today of its strength.",
-        author: "Charles Spurgeon",
+        quote: "I go out to preach with two propositions: First, every person ought to give their heart to Christ. Second, even if no one else does, I will.",
+        author: "Jonathan Edwards",
         charge: [
           "Let the peace of Christ rule as umpire in your decisions today.",
           "Return to thankfulness when peace is disturbed.",
@@ -549,8 +588,8 @@
         scripture: "2 Timothy 3:14-15",
         verse: "But you remain in the things which you have learned and have been assured of, knowing from whom you have learned them. From infancy, you have known the holy Scriptures which are able to make you wise for salvation through faith which is in Christ Jesus.",
         body: `Timothy is to continue in what he has learned and firmly believed, knowing the character of his teachers and the Scriptures he has known from childhood. The sacred writings are able to make one wise for salvation through faith in Christ Jesus. Continuity in the truth is the safeguard against the impostors of the last days.`,
-        quote: "The peace of God is a better guide than the pressure of the moment.",
-        author: "Chuck Swindoll",
+        quote: "We must never measure our spiritual capacity by our feelings; feelings come and go.",
+        author: "Oswald Chambers",
         charge: [
           "Continue in what you have learned and firmly believed.",
           "Return to the Scriptures that make wise for salvation.",
@@ -564,8 +603,8 @@
         scripture: "Ephesians 4:22-24",
         verse: "that you put away, as concerning your former way of life, the old man that grows corrupt after the lusts of deceit, and that you be renewed in the spirit of your mind, and put on the new man, who in the likeness of God has been created in righteousness and holiness of truth.",
         body: `The old man is to be put away. The spirit of the mind is to be renewed. The new man—created in the likeness of God—is to be put on. This is not improvement of the old; it is replacement.`,
-        quote: "The Holy Spirit is no mere influence; He is a Person who can be grieved, resisted, and quenched.",
-        author: "R.C. Sproul",
+        quote: "The first and most basic thing we can know about God is that He is not us.",
+        author: "Dallas Willard",
         charge: [
           "Identify one pattern of the old man and put it away today.",
           "Ask for renewal in the spirit of your mind.",
@@ -594,8 +633,8 @@
         scripture: "Ephesians 4:1-3",
         verse: "I therefore, the prisoner in the Lord, beg you to walk worthily of the calling with which you were called, with all lowliness and humility, with patience, bearing with one another in love, being eager to keep the unity of the Spirit in the bond of peace.",
         body: `Paul writes as a prisoner and urges a walk that matches the calling. The immediate shape of that walk is lowliness, humility, patience, forbearing love, and eagerness to maintain unity. This is not abstract virtue; it is the relational life of those who share one Spirit and one body.`,
-        quote: "The Holy Spirit is no mere influence; He is a Person who can be grieved, resisted, and quenched.",
-        author: "R.C. Sproul",
+        quote: "Obedience to the call of Christ always costs something, and the cost is measured by what it costs you to obey.",
+        author: "Oswald Chambers",
         charge: [
           "Examine whether your current walk matches the calling you have received.",
           "Practice lowliness and patience with one person who tests you.",
@@ -624,8 +663,8 @@
         scripture: "Romans 8:26",
         verse: "In the same way, the Spirit also helps our weaknesses, for we don’t know how to pray as we ought. But the Spirit himself makes intercession for us with groanings which can’t be uttered.",
         body: `Weakness in prayer is met by the Spirit’s help. We often do not know what to pray as we ought; the Spirit Himself intercedes with groanings too deep for words. The believer is not left alone in his inability to pray well.`,
-        quote: "The Holy Spirit is no mere influence; He is a Person who can be grieved, resisted, and quenched.",
-        author: "R.C. Sproul",
+        quote: "Prayer is not a last resort. It is the first work of the man of God.",
+        author: "Paul Washer",
         charge: [
           "Admit weakness in prayer rather than pretending competence.",
           "Depend on the Spirit’s intercession.",
@@ -654,8 +693,8 @@
         scripture: "Romans 15:13",
         verse: "Now may the God of hope fill you with all joy and peace in believing, that you may abound in hope in the power of the Holy Spirit.",
         body: `The God of hope is asked to fill believers with all joy and peace in believing, so that they overflow with hope by the power of the Holy Spirit. Hope, joy, and peace are tied to believing and to the Spirit’s power, not to changing circumstances alone.`,
-        quote: "The Holy Spirit is no mere influence; He is a Person who can be grieved, resisted, and quenched.",
-        author: "R.C. Sproul",
+        quote: "Spiritual formation is the process by which the human spirit is given a definite form or character.",
+        author: "Dallas Willard",
         charge: [
           "Look to the God of hope for joy and peace in believing.",
           "Ask to abound in hope by the Spirit’s power.",
@@ -684,8 +723,8 @@
         scripture: "Matthew 26:41",
         verse: "Watch and pray, that you don't enter into temptation. The spirit indeed is willing, but the flesh is weak.",
         body: `Watch and pray. The spirit may be willing, but the flesh is weak. Many falls begin with a failure to watch. Discipline includes staying alert and meeting temptation with prayer.`,
-        quote: "The Holy Spirit is no mere influence; He is a Person who can be grieved, resisted, and quenched.",
-        author: "R.C. Sproul",
+        quote: "Men, stop playing with sin. Sin will not play with you. It will destroy you.",
+        author: "Paul Washer",
         charge: [
           "Identify the times and places where you are most vulnerable.",
           "Build a simple watch-and-pray habit around those points.",
@@ -699,8 +738,8 @@
         scripture: "Proverbs 3:5-6",
         verse: "Trust in Yahweh with all your heart, and don’t lean on your own understanding. In all your ways acknowledge him, and he will make your paths straight.",
         body: `Full-hearted trust refuses to lean on private understanding. Acknowledging Him in all ways is the path to straightened paths. Self-reliance is the alternative that keeps paths crooked.`,
-        quote: "Faith is the gaze of a soul upon a saving God.",
-        author: "A.W. Tozer",
+        quote: "He that has doctrinal knowledge and speculation only, without affection, never is engaged in the business of religion.",
+        author: "Jonathan Edwards",
         charge: [
           "Stop leaning on your own understanding in one current decision.",
           "Acknowledge Him explicitly in all your ways today.",
@@ -759,8 +798,8 @@
         scripture: "Hebrews 11:34",
         verse: "…out of weakness were made strong, waxed valiant in fight…",
         body: `The heroes of faith were not naturally invincible. They were made strong out of weakness. God often prefers the man who knows his insufficiency. Bring the weakness. Trust the Strong One.`,
-        quote: "Faith is weakness clinging to strength, and becoming strong through so doing.",
-        author: "Charles Spurgeon",
+        quote: "Faith is acting like God is telling the truth.",
+        author: "Tony Evans",
         charge: [
           "Name one weakness you have been hiding and bring it honestly to the Lord.",
           "Refuse comparison with other men’s capacities.",
@@ -774,8 +813,8 @@
         scripture: "1 Timothy 6:12",
         verse: "Fight the good fight of faith, lay hold on eternal life, whereunto thou art also called, and hast professed a good profession before many witnesses.",
         body: `The good fight is the fight of faith—the ongoing struggle to keep believing, obeying, and holding onto eternal life. It is good because the cause is good and the outcome is sure in Christ. Keep fighting.`,
-        quote: "The good fight is the fight to remain faithful to the end.",
-        author: "John Piper",
+        quote: "True revival is not measured by emotion. It is measured by repentance and obedience.",
+        author: "Paul Washer",
         charge: [
           "Re-engage the fight of faith where you have grown passive.",
           "Lay hold of eternal life with deliberate faith today.",
@@ -819,8 +858,8 @@
         scripture: "Psalm 42:11",
         verse: "Why art thou cast down, O my soul? and why art thou disquieted within me? hope thou in God: for I shall yet praise him, who is the health of my countenance, and my God.",
         body: `The conversation with the downcast soul must continue. Hope in God is not a feeling that arrives first; it is a command that leads the feelings. Praise will come again. The health of the countenance is found in God Himself.`,
-        quote: "Worry does not empty tomorrow of its sorrow; it empties today of its strength.",
-        author: "Charles Spurgeon",
+        quote: "Feelings are good servants, but they are disastrous masters.",
+        author: "Dallas Willard",
         charge: [
           "Continue the dialogue with your soul: ask why, then command hope.",
           "Choose one act of praise even while the soul remains heavy.",
@@ -834,8 +873,8 @@
         scripture: "Colossians 3:12",
         verse: "Put on therefore, as the elect of God, holy and beloved, bowels of mercies, kindness, humbleness of mind, meekness, longsuffering.",
         body: `Kindness is part of the clothing of the elect. It is put on deliberately, along with compassion, humility, meekness, and patience. These are the garments of those who know they are holy and beloved.`,
-        quote: "Forgiveness is not optional for those who have been forgiven.",
-        author: "Chuck Swindoll",
+        quote: "God's love is not a sentimental feeling. It is a holy love that demands holiness from those He saves.",
+        author: "Paul Washer",
         charge: [
           "Put on kindness deliberately as clothing today.",
           "Combine it with humility and patience.",
@@ -864,8 +903,8 @@
         scripture: "Proverbs 1:7",
         verse: "The fear of the LORD is the beginning of knowledge: but fools despise wisdom and instruction.",
         body: `True manhood begins with the fear of the Lord. Not terror, but reverent awe that orders every other fear. The man who fears God rightly is free from the tyranny of lesser fears—approval, failure, loss, man.`,
-        quote: "The fear of God is the beginning of wisdom, and the knowledge of the Holy One is understanding.",
-        author: "R.C. Sproul",
+        quote: "God is not looking for talent. He is looking for men who will tremble at His Word.",
+        author: "Paul Washer",
         charge: [
           "Ask whether the fear of the Lord or the fear of man is currently stronger in you.",
           "Obey one command of God today that costs you the approval of someone.",
@@ -879,8 +918,8 @@
         scripture: "Ephesians 4:32",
         verse: "And be ye kind one to another, tenderhearted, forgiving one another, even as God for Christ’s sake hath forgiven you.",
         body: `Kindness, tenderheartedness, and forgiveness are the expected shape of relationships among those who have been forgiven. The standard is the forgiveness we have already received in Christ. Harshness has no place among the forgiven.`,
-        quote: "Forgiveness is not optional for those who have been forgiven.",
-        author: "Chuck Swindoll",
+        quote: "Resolution One: I will live for God. Resolution Two: If no one else does, I still will.",
+        author: "Jonathan Edwards",
         charge: [
           "Choose kindness in one interaction that usually brings irritation.",
           "Forgive as you have been forgiven.",
@@ -894,8 +933,8 @@
         scripture: "Hebrews 10:23",
         verse: "Let’s hold fast the confession of our hope without wavering; for he who promised is faithful.",
         body: `Hold fast the confession of hope without wavering. The reason is the faithfulness of the One who promised. A wavering grip on hope often comes from forgetting the character of the Promiser.`,
-        quote: "Hope is the refusal to accept the way things are as the way things will always be, because God has spoken.",
-        author: "John Piper",
+        quote: "Stop asking God to change your circumstances until you are willing to let Him change you.",
+        author: "Tony Evans",
         charge: [
           "Hold fast the confession of hope today without wavering.",
           "Remember that the One who promised is faithful.",
@@ -909,8 +948,8 @@
         scripture: "1 Corinthians 16:13",
         verse: "Watch ye, stand fast in the faith, quit you like men, be strong.",
         body: `Courage is required for ordinary faithfulness—watching, standing, acting like men, being strong. Most of the Christian life is not dramatic. It is the steady courage of daily obedience.`,
-        quote: "Act like men. Be strong. The command is for the ordinary day as much as for the crisis.",
-        author: "Alistair Begg",
+        quote: "The test of a man's religious life and character is not what he does in the exceptional moments of life, but what he does in the ordinary times.",
+        author: "Oswald Chambers",
         charge: [
           "Watch today in the ordinary places of temptation.",
           "Stand fast in the faith when it would be easier to drift.",
@@ -924,8 +963,8 @@
         scripture: "Psalm 27:14",
         verse: "Wait for Yahweh. Be strong, and let your heart take courage. Yes, wait for Yahweh.",
         body: `Waiting for the Lord requires strength and courage. It is active trust, not passive resignation. The man who cannot wait often forces outcomes and damages what God intended to give.`,
-        quote: "Faith is the gaze of a soul upon a saving God.",
-        author: "A.W. Tozer",
+        quote: "A true Christian is a person who has been broken by the cross and rebuilt by the resurrection.",
+        author: "Paul Washer",
         charge: [
           "Name the decision you have been forcing ahead of God’s timing.",
           "Delay action until you have waited on the Lord with a clear conscience.",
@@ -984,8 +1023,8 @@
         scripture: "Mark 12:31",
         verse: "And the second is like, namely this, Thou shalt love thy neighbour as thyself. There is none other commandment greater than these.",
         body: `Love of neighbor is not optional. It is the second great commandment and inseparable from love of God. For men this often means practical help, protection of the vulnerable, truthful speech, and the refusal to pass by on the other side.`,
-        quote: "The test of love for God is love for the neighbor who is right in front of you.",
-        author: "Alistair Begg",
+        quote: "Anything multiplied by zero is still zero. Ministry without the presence of God is empty activity.",
+        author: "Tom Nelson",
         charge: [
           "Identify the neighbor (near or far) God has placed in your path this week.",
           "Do one concrete act of love for that person.",
@@ -1134,8 +1173,8 @@
         scripture: "Ephesians 4:22-24",
         verse: "that you put away, as concerning your former way of life, the old man that grows corrupt after the lusts of deceit, and that you be renewed in the spirit of your mind, and put on the new man, who in the likeness of God has been created in righteousness and holiness of truth.",
         body: `Paul is not giving a vague inspirational slogan. In the flow of Ephesians 4 he is describing the practical break with the old way of life that belongs to those who have learned Christ. The old man grows corrupt through deceitful desires. The new man is created in God’s likeness. This is concrete: put away, be renewed, put on.`,
-        quote: "The Holy Spirit is no mere influence; He is a Person who can be grieved, resisted, and quenched.",
-        author: "R.C. Sproul",
+        quote: "Christ is the desire of nations, the joy of angels, the delight of the Father. What talk then of friends? Wanting Him is all.",
+        author: "John Bunyan",
         charge: [
           "Name one pattern that belongs to your former way of life and put it away today.",
           "Ask for renewal in the spirit of your mind rather than mere behavior management.",
@@ -1179,8 +1218,8 @@
         scripture: "Romans 8:1-2",
         verse: "There is therefore now no condemnation to those who are in Christ Jesus, who don’t walk according to the flesh, but according to the Spirit. For the law of the Spirit of life in Christ Jesus made me free from the law of sin and of death.",
         body: `The verdict for those in Christ Jesus is no condemnation. The Spirit’s law of life has set the believer free from the law of sin and death. This is the foundation for the life of the Spirit that the rest of the chapter develops.`,
-        quote: "The Holy Spirit is no mere influence; He is a Person who can be grieved, resisted, and quenched.",
-        author: "R.C. Sproul",
+        quote: "The law, instead of cleansing the heart from sin, doth revive it and make it stronger.",
+        author: "John Bunyan",
         charge: [
           "Stand in the verdict of no condemnation in Christ.",
           "Walk according to the Spirit rather than the flesh.",
@@ -1194,8 +1233,8 @@
         scripture: "Psalm 34:18",
         verse: "The LORD is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.",
         body: `When the heart is broken and the spirit crushed, the Lord is near—not distant. Depression and deep discouragement often feel like abandonment, yet the promise is nearness and salvation for the contrite. Take the promise over the feeling.`,
-        quote: "The Holy Spirit is no mere influence; He is a Person who can be grieved, resisted, and quenched.",
-        author: "R.C. Sproul",
+        quote: "One act of obedience is better than a hundred sermons.",
+        author: "Dietrich Bonhoeffer",
         charge: [
           "Claim God’s nearness even when you feel abandoned.",
           "Bring the broken heart honestly to Him.",
@@ -1239,8 +1278,8 @@
         scripture: "2 Timothy 2:22",
         verse: "Flee from youthful lusts; but pursue righteousness, faith, love, and peace with those who call on the Lord out of a pure heart.",
         body: `The command is both negative and positive: flee youthful passions, and pursue righteousness, faith, love, and peace—together with those who call on the Lord from a pure heart. Holiness is not only avoidance; it is directed pursuit in company with others.`,
-        quote: "Worry does not empty tomorrow of its sorrow; it empties today of its strength.",
-        author: "Charles Spurgeon",
+        quote: "You cannot be right with God and wrong with your brother.",
+        author: "Alan Redpath",
         charge: [
           "Flee the specific youthful passions that still war against you.",
           "Actively pursue righteousness, faith, love, and peace.",
@@ -1269,8 +1308,8 @@
         scripture: "Colossians 1:11",
         verse: "Strengthened with all might, according to his glorious power, unto all patience and longsuffering with joyfulness.",
         body: `True strength produces patience and longsuffering with joy. The power of God does not only create dramatic moments; it creates the ability to endure with joy. Patience is a form of strength.`,
-        quote: "We must do the fighting, but the power for the fight comes from the Spirit.",
-        author: "A.W. Tozer",
+        quote: "Suffering is not the exception in the Christian life; it is the rule. The cross comes before the crown.",
+        author: "Paul Washer",
         charge: [
           "Ask for strength unto patience in a current trial.",
           "Endure with joyfulness rather than mere gritted teeth.",
@@ -1284,8 +1323,8 @@
         scripture: "Hebrews 12:11",
         verse: "Now no chastening for the present seemeth to be joyous, but grievous: nevertheless afterward it yieldeth the peaceable fruit of righteousness unto them which are exercised thereby.",
         body: `Discipline feels grievous in the moment. Afterward it yields peaceful fruit to those trained by it. The man who refuses all discomfort remains untrained. Embrace the training.`,
-        quote: "God's discipline is proof of sonship, not rejection.",
-        author: "R.C. Sproul",
+        quote: "If we have not quiet in our minds, outward comfort will do no more for us than a golden slipper on a gouty foot.",
+        author: "John Bunyan",
         charge: [
           "Receive current hardship as possible fatherly training.",
           "Look for the peaceful fruit it is meant to produce.",
@@ -1299,8 +1338,8 @@
         scripture: "Ephesians 5:25-28",
         verse: "Husbands, love your wives, even as Christ also loved the assembly and gave himself up for it, that he might sanctify it, having cleansed it by the washing of water with the word, that he might present the assembly to himself gloriously... Even so husbands also ought to love their own wives as their own bodies.",
         body: `The standard for a husband’s love is Christ’s self-giving for the church—aimed at her sanctification and presentation in glory. This is not sentimental affection; it is costly, purifying, purposeful love. A man who claims headship without this kind of love has misunderstood the office.`,
-        quote: "We must do the fighting, but the power for the fight comes from the Spirit.",
-        author: "A.W. Tozer",
+        quote: "The man who claims to know Christ and continues in willful sin is either deceived or a liar.",
+        author: "Paul Washer",
         charge: [
           "Love in a way that costs you something for your wife’s good today.",
           "Aim at her sanctification, not merely her comfort or your convenience.",
@@ -1389,8 +1428,8 @@
         scripture: "Hebrews 12:2",
         verse: "looking to Jesus, the author and perfecter of faith, who for the joy that was set before him endured the cross, despising its shame, and has sat down at the right hand of the throne of God.",
         body: `Endurance is sustained by looking to Jesus. He is the author and perfecter of faith. He endured the cross for the joy set before Him. Fix your eyes there.`,
-        quote: "God whispers to us in our pleasures, speaks in our conscience, but shouts in our pains.",
-        author: "C.S. Lewis",
+        quote: "The evidence of conversion is not that you once prayed a prayer, but that you are still walking with Christ.",
+        author: "Paul Washer",
         charge: [
           "Fix your eyes on Jesus in the middle of today’s pressure.",
           "Remember the joy that was set before Him.",
@@ -1419,8 +1458,8 @@
         scripture: "Galatians 6:10",
         verse: "So then, as we have opportunity, let's do what is good toward all men, and especially toward those who are of the household of the faith.",
         body: `Goodness looks for opportunity. It begins with the household of faith and extends outward. A man of the Spirit is proactive in doing good rather than merely avoiding evil.`,
-        quote: "The Holy Spirit is no mere influence; He is a Person who can be grieved, resisted, and quenched.",
-        author: "R.C. Sproul",
+        quote: "If you want a better world, compose better men. And if you want better men, the church must make them.",
+        author: "Tony Evans",
         charge: [
           "Look for one opportunity today to do concrete good.",
           "Begin with someone in the household of faith.",
@@ -1434,8 +1473,8 @@
         scripture: "1 Kings 2:1-3",
         verse: "…be thou strong therefore, and shew thyself a man; And keep the charge of the LORD thy God, to walk in his ways…",
         body: `David’s final charge to Solomon was about character and covenant faithfulness: Be strong. Show yourself a man. Keep the charge of the Lord. Manhood is courage under the authority of God’s Word. Strength deployed in obedience.`,
-        quote: "The Spirit-filled life is not a special edition of Christianity; it is Christianity.",
-        author: "A.W. Tozer",
+        quote: "If the Bible does not control your life, something else will — and that something else is not from God.",
+        author: "Paul Washer",
         charge: [
           "If you are a father or mentor, speak a clear charge to a younger man this week.",
           "If younger, ask an older man what it has meant to show himself a man under God.",
@@ -1449,8 +1488,8 @@
         scripture: "Colossians 3:15",
         verse: "And let the peace of God rule in your hearts, to which also you were called in one body, and be thankful.",
         body: `Let the peace of Christ act as umpire in your heart. When peace is displaced, something is often out of order. Thankfulness helps restore the rule of peace.`,
-        quote: "Worry does not empty tomorrow of its sorrow; it empties today of its strength.",
-        author: "Charles Spurgeon",
+        quote: "God's purpose for my life was that I have a passion for God's glory and that I have a passion for my joy in that glory.",
+        author: "Jonathan Edwards",
         charge: [
           "Check whether the peace of Christ is currently ruling.",
           "Restore peace through thanksgiving and surrender.",
@@ -1494,8 +1533,8 @@
         scripture: "Galatians 6:10",
         verse: "As we have therefore opportunity, let us do good unto all men, especially unto them who are of the household of faith.",
         body: `Goodness looks for opportunity. It begins with the household of faith and extends outward. A man of the Spirit is proactive in doing good rather than merely avoiding evil.`,
-        quote: "The Holy Spirit is no mere influence; He is a Person who can be grieved, resisted, and quenched.",
-        author: "R.C. Sproul",
+        quote: "The armor of God is not optional equipment. It is required gear for a war that is already on.",
+        author: "Tony Evans",
         charge: [
           "Look for one opportunity today to do concrete good.",
           "Begin with someone in the household of faith.",
@@ -1509,8 +1548,8 @@
         scripture: "Colossians 4:2-4",
         verse: "Continue steadfastly in prayer, watching in it with thanksgiving, praying together for us also, that God may open to us a door for the word, to speak the mystery of Christ... that I may reveal it as I ought to speak.",
         body: `Steadfast prayer is paired with watchfulness and thanksgiving. Paul asks for prayer that a door for the word would open and that he would declare the mystery clearly. Prayer supports both the advance of the gospel and the clarity of the messenger.`,
-        quote: "Prayer is the slender nerve that moves the muscle of omnipotence.",
-        author: "Charles Spurgeon",
+        quote: "Stop asking God to bless what you are doing. Start doing what God has already blessed in His Word.",
+        author: "Paul Washer",
         charge: [
           "Continue steadfastly in prayer rather than praying only in spurts.",
           "Watch in prayer with thanksgiving.",
@@ -1524,8 +1563,8 @@
         scripture: "Matthew 6:31-32",
         verse: "Therefore take no thought, saying, What shall we eat? or, What shall we drink? or, Wherewithal shall we be clothed? … for your heavenly Father knoweth that ye have need of all these things.",
         body: `Anxiety about provision is met by the knowledge that the Father already knows. Worry is practical atheism in the moment—it acts as if the Father is unaware or uncaring. Trust His knowledge and care.`,
-        quote: "Worry does not empty tomorrow of its sorrow; it empties today of its strength.",
-        author: "Charles Spurgeon",
+        quote: "A man who will not lead his home under God has already surrendered the battle.",
+        author: "Tony Evans",
         charge: [
           "Stop rehearsing the ‘what if’ questions about provision.",
           "Thank the Father that He already knows your needs.",
@@ -1539,8 +1578,8 @@
         scripture: "John 13:34-35",
         verse: "A new commandment I give to you, that you love one another. Just as I have loved you, you also love one another. By this everyone will know that you are my disciples, if you have love for one another.",
         body: `The new commandment is measured by Christ's own love. Love for one another is the public mark of discipleship. A man who claims to follow Christ yet does not love the brothers has missed the evidence Jesus Himself gave.`,
-        quote: "Love is not primarily a feeling; it is a commitment to act for the good of another.",
-        author: "Larry Crabb",
+        quote: "Never make a principle out of your experience; let God be as original with other people as He is with you.",
+        author: "Oswald Chambers",
         charge: [
           "Love one brother today in a concrete way that costs.",
           "Measure your love by the standard of Christ's love.",
@@ -1554,8 +1593,8 @@
         scripture: "Hebrews 11:1",
         verse: "Now faith is the substance of things hoped for, the evidence of things not seen.",
         body: `Faith, in one crucial sense, is the art of holding on to things your reason has once accepted, in spite of changing moods. Feelings fluctuate. Truth does not. The man who lives by the latest emotional weather is unstable. The man who holds what he has seen in the light endures the fog.`,
-        quote: "Faith… is the art of holding on to things your reason has once accepted, in spite of your changing moods.",
-        author: "C.S. Lewis",
+        quote: "Your feelings are real, but they are not the boss. Truth is the boss.",
+        author: "Tony Evans",
         charge: [
           "Reaffirm one truth you know in the clear light but currently feel less certain about.",
           "Do not make major decisions in the trough of a mood.",
@@ -1629,8 +1668,8 @@
         scripture: "Romans 5:5",
         verse: "And hope maketh not ashamed; because the love of God is shed abroad in our hearts by the Holy Ghost which is given unto us.",
         body: `Biblical hope does not disappoint. The reason is the love of God poured into our hearts by the Holy Spirit. This hope is not wishful thinking. It is confidence grounded in the demonstrated love of God at the cross and the present work of the Spirit.`,
-        quote: "Hope is the confident expectation that God will keep every promise because He has already kept the greatest one.",
-        author: "John Piper",
+        quote: "If you are not hungry for holiness, you are not saved. The Spirit of God produces a hunger for righteousness.",
+        author: "Paul Washer",
         charge: [
           "Locate your hope in the love of God already demonstrated, not in changing feelings.",
           "Let the Spirit’s presence assure you that this hope will not put you to shame.",
@@ -1644,8 +1683,8 @@
         scripture: "2 Timothy 2:2",
         verse: "The things which you have heard from me among many witnesses, commit the same things to faithful men who will be able to teach others also.",
         body: `The pattern is multiplication: what Timothy heard from Paul is to be entrusted to faithful men who will be able to teach others. Four generations are in view. The gospel advances through deliberate entrustment to reliable, teachable men.`,
-        quote: "The Bible is not a book for the journey; it is the journey itself under the Spirit’s guidance.",
-        author: "A.W. Tozer",
+        quote: "Do not tell me how many people you have led to Christ. Tell me how many people you have discipled.",
+        author: "Paul Washer",
         charge: [
           "Identify one faithful man to whom you can entrust what you have received.",
           "Invest in someone who will be able to teach others.",
@@ -1659,8 +1698,8 @@
         scripture: "Hebrews 12:11",
         verse: "Now no chastening for the present seemeth to be joyous, but grievous: nevertheless afterward it yieldeth the peaceable fruit of righteousness unto them which are exercised thereby.",
         body: `God’s discipline is not pleasant in the moment. It is grievous. But afterward it yields the peaceful fruit of righteousness to those who are trained by it. The man who resents every hard hand of God remains untrained. Receive the discipline as a son.`,
-        quote: "Meekness is not weakness; it is power under control.",
-        author: "R.C. Sproul",
+        quote: "Do the hard thing first. Most of life is decided by whether you face the hard thing or dodge it.",
+        author: "Tom Nelson",
         charge: [
           "Receive current difficulty as possible fatherly discipline rather than only as attack.",
           "Ask what peaceful fruit of righteousness this is meant to produce.",
@@ -1704,8 +1743,8 @@
         scripture: "Philippians 4:7",
         verse: "And the peace of God, which surpasses all understanding, will guard your hearts and your thoughts in Christ Jesus.",
         body: `The peace of God surpasses understanding and stands guard over heart and mind. It does not require the circumstances to make sense first. It is given in Christ Jesus.`,
-        quote: "Worry does not empty tomorrow of its sorrow; it empties today of its strength.",
-        author: "Charles Spurgeon",
+        quote: "Silence in the face of evil is itself evil. Not to speak is to speak. Not to act is to act.",
+        author: "Dietrich Bonhoeffer",
         charge: [
           "Bring anxious thoughts to God and ask for the peace that guards.",
           "Refuse to let understanding be the precondition for peace.",
@@ -1719,8 +1758,8 @@
         scripture: "Zechariah 4:6",
         verse: "…Not by might, nor by power, but by my spirit, saith the LORD of hosts.",
         body: `The fight is real, but it is not won by human might or power. It is won by the Spirit of the Lord. A man who relies on his own strength will eventually exhaust it. The Spirit supplies what the battle requires.`,
-        quote: "We must do the fighting, but the power for the fight comes from the Spirit.",
-        author: "A.W. Tozer",
+        quote: "The Christian life is not a playground; it is a battlefield.",
+        author: "Alan Redpath",
         charge: [
           "Confess any reliance on your own might for spiritual battles.",
           "Ask the Spirit specifically for power for today’s fight.",
@@ -1764,8 +1803,8 @@
         scripture: "1 John 2:14",
         verse: "I have written unto you, young men, because ye are strong, and the word of God abideth in you, and ye have overcome the wicked one.",
         body: `Strength in the biblical sense is Word-saturated strength. The man in whom the Word abides is not easily moved by lies, pressure, or fluctuating emotions. Casual acquaintance is not enough. The Word must dwell.`,
-        quote: "The Bible is not a book for the journey; it is the journey itself under the Spirit’s guidance.",
-        author: "A.W. Tozer",
+        quote: "Stay in the Word until the Word stays in you.",
+        author: "Tom Nelson",
         charge: [
           "Increase the dwelling-time of the Word this week.",
           "Answer temptation or discouragement with specific Scripture.",
@@ -1779,8 +1818,8 @@
         scripture: "Galatians 5:16",
         verse: "This I say then, Walk in the Spirit, and ye shall not fulfil the lust of the flesh.",
         body: `Walking in the Spirit is the positive alternative to fulfilling the flesh. The fruit grows where the Spirit is given room. A man who focuses only on not doing the works of the flesh, without walking in the Spirit, remains in a losing battle. Walk.`,
-        quote: "The Spirit-filled life is the only life that can consistently say no to the flesh.",
-        author: "Chuck Swindoll",
+        quote: "The natural man does not receive the things of the Spirit; the spiritual man is one who has been made alive by the Spirit.",
+        author: "Oswald Chambers",
         charge: [
           "Begin the day by consciously walking in dependence on the Spirit.",
           "When fleshly desire rises, turn to the Spirit rather than only to willpower.",
@@ -1794,8 +1833,8 @@
         scripture: "Joshua 1:9",
         verse: "Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.",
         body: `Courage is not only for the battlefield. It is for the ordinary day when fear of failure, rejection, or inadequacy tries to rule. The command is paired with a promise: the Lord your God is with you. Presence fuels courage.`,
-        quote: "Courage is not the absence of fear; it is the decision that something else is more important.",
-        author: "Alistair Begg",
+        quote: "The fear of man is a snare. The fear of God sets a man free.",
+        author: "Paul Washer",
         charge: [
           "Identify the fear that is most quietly ruling you today.",
           "Act in obedience in that area precisely because God is with you.",
@@ -1809,10 +1848,10 @@
         scripture: "1 Thessalonians 4:11-12",
         verse: "And that ye study to be quiet, and to do your own business, and to work with your own hands… that ye may walk honestly toward them that are without…",
         body: `There is power in a quiet, diligent, honest life. Not every man is called to a platform. Most are called to faithful work, steady presence, and quiet integrity. That kind of life still adorns the gospel.`,
-        quote: "The greatest thing a man can do is to be faithful in the ordinary.",
-        author: "Chuck Swindoll",
+        quote: "A man who will not lead his home will not lead anything that matters in the kingdom.",
+        author: "Paul Washer",
         charge: [
-          "Embrace the ordinary work God has given you today as holy.",
+          "Treat the ordinary work God has given you today as holy.",
           "Pursue quietness of spirit rather than the need to be noticed.",
           "Let your honest walk speak to those outside the faith.",
         ],
@@ -1869,8 +1908,8 @@
         scripture: "James 4:7-8",
         verse: "Be subject therefore to God. Resist the devil, and he will flee from you. Draw near to God, and he will draw near to you. Cleanse your hands, you sinners. Purify your hearts, you double-minded.",
         body: `Submission to God is the prerequisite for effective resistance of the devil. Drawing near to God is met by His drawing near. Cleansing of hands and purifying of hearts are required. Double-mindedness must go.`,
-        quote: "The peace of God is a better guide than the pressure of the moment.",
-        author: "Chuck Swindoll",
+        quote: "Christianity means community through Jesus Christ and in Jesus Christ.",
+        author: "Dietrich Bonhoeffer",
         charge: [
           "Submit the specific area of your will that is still resisting God.",
           "From that submission, resist the devil — not the other way around.",
@@ -1884,8 +1923,8 @@
         scripture: "Romans 3:23-24",
         verse: "for all have sinned, and fall short of the glory of God; being justified freely by his grace through the redemption that is in Christ Jesus.",
         body: `The universal diagnosis is clear: all have sinned and fall short of God’s glory. The universal provision is equally clear: justification is by God’s grace as a gift through the redemption in Christ Jesus. No one escapes the diagnosis; no one who believes is left without the gift.`,
-        quote: "Faith is the gaze of a soul upon a saving God.",
-        author: "A.W. Tozer",
+        quote: "Grace is but glory begun, and glory is but grace perfected.",
+        author: "Jonathan Edwards",
         charge: [
           "Accept the diagnosis that includes you.",
           "Receive justification as a free gift through Christ’s redemption.",
@@ -1899,8 +1938,8 @@
         scripture: "Galatians 6:9",
         verse: "And let us not be weary in well doing: for in due season we shall reap, if we faint not.",
         body: `Well-doing becomes wearisome. The harvest is real, but it is often delayed. The man who faints before due season loses what perseverance would have produced. Keep sowing. Keep obeying. Due season is coming.`,
-        quote: "The Word of God well understood and religiously obeyed is the shortest route to spiritual perfection.",
-        author: "A.W. Tozer",
+        quote: "The first service one owes to others in the fellowship consists in listening to them.",
+        author: "Dietrich Bonhoeffer",
         charge: [
           "Refuse weariness as a reason to stop well-doing.",
           "Recommit to the long obedience in one specific area.",
@@ -1929,8 +1968,8 @@
         scripture: "1 Timothy 4:16",
         verse: "Take heed unto thyself, and unto the doctrine; continue in them: for in doing this thou shalt both save thyself, and them that hear thee.",
         body: `Two things must be watched: your life and your doctrine. Neglect either and both eventually suffer. The man who guards only his public teaching while neglecting private holiness, or guards only his behavior while drifting in truth, will not finish well.`,
-        quote: "Watch your life and doctrine closely. Perseverance in both is required.",
-        author: "Alistair Begg",
+        quote: "Be always developing, always looking for potential leaders. The future of the work depends on it.",
+        author: "Tom Nelson",
         charge: [
           "Examine both your private life and the truth you are currently holding.",
           "Correct whatever is out of line in either area.",
@@ -1989,8 +2028,8 @@
         scripture: "Ephesians 4:2",
         verse: "With all lowliness and meekness, with longsuffering, forbearing one another in love…",
         body: `Long-suffering is patience with people, not only with circumstances. It is the ability to forbear in love when others are slow, difficult, or disappointing. A man without long-suffering becomes harsh and isolating. The call is to forbear in love.`,
-        quote: "Love is patient. It is willing to suffer long with the imperfections of others.",
-        author: "R.C. Sproul",
+        quote: "In times of affliction we commonly meet with the sweetest experiences of the love of God.",
+        author: "John Bunyan",
         charge: [
           "Identify one person with whom you have been short rather than long-suffering.",
           "Practice forbearing in love with that person today.",
@@ -2004,8 +2043,8 @@
         scripture: "Luke 16:10",
         verse: "He that is faithful in that which is least is faithful also in much: and he that is unjust in the least is unjust also in much.",
         body: `Faithfulness is tested in the small things long before the large ones arrive. The man who is careless with little will be careless with much. God watches how we handle the unnoticed responsibilities.`,
-        quote: "God is not primarily looking for ability; He is looking for faithfulness.",
-        author: "Chuck Swindoll",
+        quote: "Faithfulness in the small things is the only path to being entrusted with the large things.",
+        author: "Tom Nelson",
         charge: [
           "Identify one small responsibility you have been treating carelessly.",
           "Become faithful in that least thing this week.",
@@ -2049,8 +2088,8 @@
         scripture: "1 Thessalonians 5:18",
         verse: "In every thing give thanks: for this is the will of God in Christ Jesus concerning you.",
         body: `Thanksgiving is the will of God. It is not reserved for the easy days. In everything—find something to thank God for. The practice rewires the worried or depressed mind toward the faithfulness of God. It is a discipline that produces hope.`,
-        quote: "You are not what you think you are; but what you think, you are.",
-        author: "A.W. Tozer",
+        quote: "God's will is not a mystery to be found. It is a path to be walked in the light you already have.",
+        author: "Tony Evans",
         charge: [
           "List five specific thanksgivings today, including one from a hard place.",
           "Practice verbal thanks to God when worry or gloom rises.",
@@ -2109,8 +2148,8 @@
         scripture: "2 Timothy 1:13-14",
         verse: "Hold the pattern of sound words which you have heard from me, in faith and love which is in Christ Jesus. That good thing which was committed to you, guard through the Holy Spirit who dwells in us.",
         body: `Timothy is to hold the pattern of sound words and to guard the good deposit through the Holy Spirit. The faith is not reinvented each generation; it is received, held, and guarded. The power for guarding is the indwelling Spirit, not mere human resolve.`,
-        quote: "The Holy Spirit is no mere influence; He is a Person who can be grieved, resisted, and quenched.",
-        author: "R.C. Sproul",
+        quote: "God is more interested in who you are becoming than in what you are achieving.",
+        author: "Tom Nelson",
         charge: [
           "Hold the pattern of sound words you have received.",
           "Guard the good deposit rather than neglecting or altering it.",
@@ -2124,8 +2163,8 @@
         scripture: "1 Peter 4:8",
         verse: "And above all things have fervent charity among yourselves: for charity shall cover the multitude of sins.",
         body: `Fervent love covers a multitude of sins—it does not expose every fault for sport. Yet real love also confronts when the brother’s good requires it. Covering is not the same as enabling. Discernment is needed.`,
-        quote: "Love is not primarily a feeling; it is a commitment to act for the good of another.",
-        author: "Larry Crabb",
+        quote: "The bedrock of our Christian faith is the unmerited, unearned, unconditional love of God expressed in Jesus Christ.",
+        author: "Oswald Chambers",
         charge: [
           "Cover one offense today that does not need to be advertised.",
           "Lovingly confront one issue that is harming a brother or the body.",
@@ -2139,8 +2178,8 @@
         scripture: "2 Corinthians 12:9",
         verse: "My grace is sufficient for thee: for my strength is made perfect in weakness.",
         body: `God’s grace is not only for the moment of conversion. It is the daily strength for the long journey. When you feel weak, the promise is not that you will suddenly feel strong, but that His grace will prove sufficient for this day’s demands.`,
-        quote: "God never gives us more than we can handle with His grace.",
-        author: "Chuck Swindoll",
+        quote: "The will of God will never take you where the grace of God cannot keep you.",
+        author: "Alan Redpath",
         charge: [
           "Stop demanding that the difficulty end on your timeline; receive today’s grace for today’s load.",
           "Speak the words “Your grace is sufficient” over the place that feels most insufficient.",
@@ -2154,8 +2193,8 @@
         scripture: "Psalm 42:5",
         verse: "Why art thou cast down, O my soul? and why art thou disquieted in me? hope thou in God: for I shall yet praise him for the help of his countenance.",
         body: `Depression is real. The psalmist does not deny the cast-down soul; he talks to it. He does not let the darkness have the last word. He commands his soul to hope in God. A man in the pit still has a duty: speak truth to himself and look to the God who helps.`,
-        quote: "The Christian is a man who has learned to live under the authority of the Word and the power of the Spirit.",
-        author: "Alistair Begg",
+        quote: "A man who prays little will accomplish little that lasts.",
+        author: "Tom Nelson",
         charge: [
           "Talk to your soul today rather than only listening to it.",
           "Name one specific reason to hope in God even while the darkness remains.",
@@ -2214,8 +2253,8 @@
         scripture: "James 1:5-6",
         verse: "But if any of you lacks wisdom, let him ask of God, who gives to all liberally and without reproach, and it will be given to him. But let him ask in faith, without any doubting, for he who doubts is like a wave of the sea, driven by the wind and tossed.",
         body: `Wisdom is available to the one who lacks it and asks God. God gives generously and without reproach. The asking must be in faith, without doubting. The double-minded man is unstable and should not expect to receive.`,
-        quote: "You are not what you think you are; but what you think, you are.",
-        author: "A.W. Tozer",
+        quote: "The conversion of a soul is the miracle of a moment, but the manufacture of a saint is the task of a lifetime.",
+        author: "Alan Redpath",
         charge: [
           "Ask God for the wisdom you lack.",
           "Ask in faith, without doubting.",
@@ -2259,8 +2298,8 @@
         scripture: "Acts 5:29",
         verse: "Then Peter and the other apostles answered and said, We ought to obey God rather than men.",
         body: `There will be times when obedience to God puts a man at odds with people or a culture he once pleased. The temptation is to negotiate. The man who fears God more than man is free. The man who reverses that order is already owned.`,
-        quote: "To be right with God has often meant to be in trouble with men.",
-        author: "A.W. Tozer",
+        quote: "The man who is most in the fear of God is least in the fear of man.",
+        author: "John Bunyan",
         charge: [
           "Identify where fear of man is currently shaping your decisions.",
           "Decide in advance that God’s approval is the one that finally matters.",
@@ -2289,8 +2328,8 @@
         scripture: "John 16:13",
         verse: "However, when he, the Spirit of truth, has come, he will guide you into all truth, for he will not speak from himself; but whatever he hears, he will speak. He will declare to you things that are coming.",
         body: `The Spirit of truth guides into all the truth. He does not speak on His own authority but speaks what He hears and declares the things to come. The Spirit’s ministry is Christ-centered and truth-centered, not independent or novel for its own sake.`,
-        quote: "The Holy Spirit is no mere influence; He is a Person who can be grieved, resisted, and quenched.",
-        author: "R.C. Sproul",
+        quote: "Lead from your knees. Authority in the kingdom flows from dependence, not dominance.",
+        author: "Tom Nelson",
         charge: [
           "Depend on the Spirit of truth to guide you.",
           "Test claims of spiritual guidance by whether they align with the truth already given.",
@@ -2364,8 +2403,8 @@
         scripture: "2 Timothy 2:25",
         verse: "In meekness instructing those that oppose themselves; if God peradventure will give them repentance to the acknowledging of the truth.",
         body: `Correction of those who oppose the truth is to be done in meekness. The goal is repentance and knowledge of the truth, not winning the argument. Meek instruction leaves room for God to grant repentance.`,
-        quote: "The Lord’s servant must correct opponents with gentleness.",
-        author: "Alistair Begg",
+        quote: "It is not the amount of truth you know that matters, but the amount of truth you obey.",
+        author: "Alan Redpath",
         charge: [
           "Correct one person this week with genuine meekness.",
           "Aim at their repentance and knowledge of the truth.",
@@ -2379,8 +2418,8 @@
         scripture: "Romans 6:11",
         verse: "Thus consider yourselves also to be dead to sin, but alive to God in Christ Jesus our Lord.",
         body: `Because the believer has been united with Christ in death and resurrection, he is to consider himself dead to sin and alive to God in Christ Jesus. This is not a feeling to await; it is a reckoning to make on the basis of what is true in Christ.`,
-        quote: "Faith is the gaze of a soul upon a saving God.",
-        author: "A.W. Tozer",
+        quote: "God can do more with a surrendered man in one day than with a self-driven man in a lifetime.",
+        author: "Tony Evans",
         charge: [
           "Reckon yourself dead to sin today on the basis of union with Christ.",
           "Live as one alive to God in Christ Jesus.",
@@ -2409,8 +2448,8 @@
         scripture: "Colossians 3:17",
         verse: "Whatever you do, in word or in deed, do all in the name of the Lord Jesus, giving thanks to God the Father through him.",
         body: `Every word and deed is to be done in the name of the Lord Jesus, with thanksgiving to the Father through Him. There is no secular zone left. The scope is total, and gratitude is the accompanying attitude.`,
-        quote: "The Bible is not a book for the journey; it is the journey itself under the Spirit’s guidance.",
-        author: "A.W. Tozer",
+        quote: "If you want to know a man's real theology, watch how he treats his wife and children.",
+        author: "Tom Nelson",
         charge: [
           "Do the next ordinary task in the name of the Lord Jesus.",
           "Add thanksgiving to the Father through Him.",
@@ -2454,8 +2493,8 @@
         scripture: "Romans 5:5",
         verse: "and hope doesn't disappoint us, because God's love has been poured into our hearts through the Holy Spirit who was given to us.",
         body: `Biblical hope does not disappoint. The reason is God's love poured into our hearts by the Holy Spirit. This hope is grounded in demonstrated love, not in fluctuating circumstances.`,
-        quote: "The Holy Spirit is no mere influence; He is a Person who can be grieved, resisted, and quenched.",
-        author: "R.C. Sproul",
+        quote: "Judging others makes us blind, whereas love is illuminating.",
+        author: "Dietrich Bonhoeffer",
         charge: [
           "Locate your hope in the love of God already poured out.",
           "Let the Spirit's presence assure you this hope will not put you to shame.",
@@ -2469,8 +2508,8 @@
         scripture: "Ephesians 4:15",
         verse: "But speaking the truth in love, may grow up into him in all things, which is the head, even Christ.",
         body: `Truth without love becomes harsh. Love without truth becomes soft. The mature man learns to speak the truth in love. Both are required for growth in the body of Christ.`,
-        quote: "Truthing in love is the mark of a mature Christian community.",
-        author: "Alistair Begg",
+        quote: "Truth without love is brutality. Love without truth is sentimentality. The man of God holds both.",
+        author: "Tom Nelson",
         charge: [
           "Speak one necessary truth today that you have been avoiding.",
           "Wrap it in genuine love for the person.",
@@ -2484,8 +2523,8 @@
         scripture: "James 4:8",
         verse: "Draw near to God, and he will draw near to you. Cleanse your hands, you sinners. Purify your hearts, you double-minded.",
         body: `The promise is reciprocal: draw near, and He will draw near. Cleansing of hands and purifying of hearts accompany the approach. Double-mindedness is the barrier.`,
-        quote: "Repentance is the courage to tell the truth about yourself to God and then to turn.",
-        author: "Larry Crabb",
+        quote: "We must be ready to allow ourselves to be interrupted by God.",
+        author: "Dietrich Bonhoeffer",
         charge: [
           "Draw near to God today with deliberate intent.",
           "Cleanse what needs cleansing.",
@@ -2499,8 +2538,8 @@
         scripture: "James 1:22",
         verse: "But be doers of the word, and not only hearers, deluding your own selves.",
         body: `Hearing without doing is self-deception. The man who looks into the perfect law of freedom and perseveres, being no hearer who forgets but a doer who acts, will be blessed in his doing. Obedience is the path of blessing.`,
-        quote: "The Bible is not a book for the journey; it is the journey itself under the Spirit’s guidance.",
-        author: "A.W. Tozer",
+        quote: "A man of God is not measured by the size of his platform but by the depth of his walk with God.",
+        author: "Tom Nelson",
         charge: [
           "Do the word you have heard.",
           "Refuse the self-deception of hearing only.",
@@ -2514,8 +2553,8 @@
         scripture: "Joshua 1:9",
         verse: "Haven't I commanded you? Be strong and courageous. Don't be afraid. Don't be dismayed, for Yahweh your God is with you wherever you go.",
         body: `Courage is commanded because God Himself is with you wherever you go. Presence fuels courage. The command and the promise travel together.`,
-        quote: "Courage is not the absence of fear; it is the decision that something else is more important.",
-        author: "Alistair Begg",
+        quote: "A soft man will never produce hard disciples. Leadership requires courage under fire.",
+        author: "Tom Nelson",
         charge: [
           "Act with courage today because God is with you.",
           "Refuse dismay in the place of assignment.",
@@ -2544,8 +2583,8 @@
         scripture: "Ephesians 6:18",
         verse: "with all prayer and requests, praying at all times in the Spirit, and being watchful to this end in all perseverance and requests for all the saints.",
         body: `After the armor, Paul emphasizes prayer—all kinds, at all times, in the Spirit, with perseverance, for all the saints. Armor without prayer is incomplete. Watchfulness and intercession for the whole body belong to the same fight.`,
-        quote: "The Holy Spirit is no mere influence; He is a Person who can be grieved, resisted, and quenched.",
-        author: "R.C. Sproul",
+        quote: "Prayer is the wireless connection between earth and heaven. Keep the signal strong.",
+        author: "Tony Evans",
         charge: [
           "Set a definite time today to pray without multitasking.",
           "Stay alert in prayer rather than drifting into vague thoughts.",
@@ -2619,8 +2658,8 @@
         scripture: "Colossians 3:23-24",
         verse: "And whatever you do, work heartily, as for the Lord and not for men, knowing that from the Lord you will receive the reward of the inheritance; for you serve the Lord Christ.",
         body: `In the household code of Colossians, Paul addresses bondservants, yet the principle reaches every kind of work. Work is to be done heartily as for the Lord. The ultimate Master is Christ, and the reward comes from Him. This reorients ordinary labor.`,
-        quote: "Forgiveness is not optional for those who have been forgiven.",
-        author: "Chuck Swindoll",
+        quote: "All God's men are ordinary men made extraordinary by the matter He has given them.",
+        author: "Oswald Chambers",
         charge: [
           "Do today’s work as service to Christ, not merely to human supervisors.",
           "Work heartily rather than half-heartedly.",
@@ -2724,8 +2763,8 @@
         scripture: "Galatians 5:16",
         verse: "This I say then, Walk in the Spirit, and ye shall not fulfil the lust of the flesh.",
         body: `Walking by the Spirit is the positive way to avoid fulfilling the flesh. It is not merely trying harder to say no. It is saying yes to the Spirit’s leading and power moment by moment.`,
-        quote: "The Holy Spirit is no mere influence; He is a Person who can be grieved, resisted, and quenched.",
-        author: "R.C. Sproul",
+        quote: "The only way to understand the Scriptures is by the Spirit who wrote them.",
+        author: "Oswald Chambers",
         charge: [
           "Begin the day by consciously depending on the Spirit.",
           "When fleshly desire rises, turn immediately to the Spirit.",
@@ -2739,8 +2778,8 @@
         scripture: "2 Timothy 1:13-14",
         verse: "Hold the pattern of sound words which you have heard from me, in faith and love which is in Christ Jesus. That good thing which was committed to you, guard through the Holy Spirit who dwells in us.",
         body: `The pattern of sound words is to be held in faith and love. The good deposit is to be guarded through the Holy Spirit who dwells in us. Preservation of the gospel is both a human responsibility and a Spirit-empowered work.`,
-        quote: "The Holy Spirit is no mere influence; He is a Person who can be grieved, resisted, and quenched.",
-        author: "R.C. Sproul",
+        quote: "A true love of God must begin with a delight in His holiness.",
+        author: "Jonathan Edwards",
         charge: [
           "Hold the pattern of sound words you have received.",
           "Guard the good deposit rather than neglecting it.",
@@ -2754,8 +2793,8 @@
         scripture: "James 5:16",
         verse: "Confess your sins to one another and pray for one another, that you may be healed. The insistent prayer of a righteous person is powerfully effective.",
         body: `Confession to one another and mutual prayer are linked to healing. The prayer of a righteous person, when it is earnest, has great power. Isolation in sin and isolation in prayer both weaken the body.`,
-        quote: "We must do the fighting, but the power for the fight comes from the Spirit.",
-        author: "A.W. Tozer",
+        quote: "God is not looking for perfect men. He is looking for available men who will obey.",
+        author: "Tony Evans",
         charge: [
           "Confess a real fault to a trusted brother this week.",
           "Pray for him by name, not only in general.",
@@ -2769,8 +2808,8 @@
         scripture: "Romans 8:28",
         verse: "And we know that all things work together for good to them that love God, to them who are the called according to his purpose.",
         body: `A high view of God’s sovereignty is not an excuse for passivity. It is the foundation for courage. If God is truly God, then the man who belongs to Him can face whatever comes without final fear. All things—even the hard things—are under His wise hand.`,
-        quote: "If there is one single reason why good people love God, it is because they trust His sovereignty.",
-        author: "R.C. Sproul",
+        quote: "The greatest need of the church is not more programs. It is more men who fear God.",
+        author: "Paul Washer",
         charge: [
           "Rest in God’s sovereignty over one situation that feels out of control.",
           "Act with courage precisely because God is sovereign, not in spite of it.",
@@ -2829,8 +2868,8 @@
         scripture: "1 Timothy 6:11-12",
         verse: "But you, man of God, flee these things, and follow after righteousness, godliness, faith, love, perseverance, and gentleness. Fight the good fight of faith. Take hold of the eternal life to which you were called, and you confessed the good confession in the sight of many witnesses.",
         body: `The man of God is told both to flee and to pursue. Then comes the charge to fight the good fight of faith and to take hold of eternal life. The fight is not abstract; it is the active holding of what was confessed and the pursuit of a specific cluster of virtues.`,
-        quote: "Faith is the gaze of a soul upon a saving God.",
-        author: "A.W. Tozer",
+        quote: "Kingdom men do not blend in. They stand out because they stand under authority.",
+        author: "Tony Evans",
         charge: [
           "Flee what must be fled and pursue righteousness, faith, love, and gentleness.",
           "Fight the good fight of faith in the place where you are tempted to coast.",
@@ -2844,8 +2883,8 @@
         scripture: "Philippians 4:6-7",
         verse: "In nothing be anxious, but in everything, by prayer and petition with thanksgiving, let your requests be made known to God. And the peace of God, which surpasses all understanding, will guard your hearts and your thoughts in Christ Jesus.",
         body: `Anxiety is replaced by prayer and petition with thanksgiving. The requests are made known to God; the result is the peace of God standing guard over heart and mind in Christ Jesus. This is not denial of trouble; it is transfer of trouble into the presence of God with gratitude.`,
-        quote: "Worry does not empty tomorrow of its sorrow; it empties today of its strength.",
-        author: "Charles Spurgeon",
+        quote: "When a man knows who he is in Christ, he stops begging the world for an identity.",
+        author: "Tony Evans",
         charge: [
           "Turn each anxious thought into a specific request with thanksgiving.",
           "Leave the request with God.",
@@ -2859,8 +2898,8 @@
         scripture: "Acts 2:42",
         verse: "They continued steadfastly in the apostles’ teaching and fellowship, in the breaking of bread, and prayer.",
         body: `The early church’s life is summarized in four devoted practices: the apostles’ teaching, fellowship, the breaking of bread, and the prayers. These are not optional programs; they are the basic shape of persistence in the faith after conversion.`,
-        quote: "Prayer is the slender nerve that moves the muscle of omnipotence.",
-        author: "Charles Spurgeon",
+        quote: "The measure of a man's ministry is the measure of his hidden life with God.",
+        author: "Alan Redpath",
         charge: [
           "Devote yourself to the apostles’ teaching (Scripture).",
           "Stay in genuine fellowship, breaking of bread, and prayer.",
@@ -2964,8 +3003,8 @@
         scripture: "Acts 4:12",
         verse: "There is salvation in no one else, for there is no other name under heaven that is given among men by which we must be saved!",
         body: `The exclusivity of the name of Jesus is declared under official pressure. Salvation is in no one else. The apostolic confidence is not arrogance; it is loyalty to the only Savior God has given.`,
-        quote: "The Christian is a man who has learned to live under the authority of the Word and the power of the Spirit.",
-        author: "Alistair Begg",
+        quote: "You have not lived today until you have done something for someone who can never repay you.",
+        author: "John Bunyan",
         charge: [
           "Confess the uniqueness of Christ’s name without dilution.",
           "Refuse syncretism that adds other saviors.",
@@ -3024,8 +3063,8 @@
         scripture: "1 Corinthians 4:1-2",
         verse: "Let a man so account of us, as of the ministers of Christ, and stewards of the mysteries of God. Moreover it is required in stewards, that a man be found faithful.",
         body: `Faithfulness is the primary requirement of a steward. Not brilliance, not popularity, not results we can measure. The man who is faithful with what God has entrusted—time, truth, people, gifts—will hear “Well done.”`,
-        quote: "God does not require us to be successful in the world’s eyes; He requires us to be faithful.",
-        author: "R.C. Sproul",
+        quote: "God does not give us everything we want, but He does fulfill His promises.",
+        author: "Dietrich Bonhoeffer",
         charge: [
           "Evaluate one area of stewardship (time, money, truth, relationships) for faithfulness.",
           "Release the demand for visible success and pursue quiet faithfulness.",
@@ -3039,8 +3078,8 @@
         scripture: "1 Timothy 1:15",
         verse: "The saying is faithful and worthy of all acceptance, that Christ Jesus came into the world to save sinners, of whom I am chief.",
         body: `Paul places himself among the sinners Christ came to save and calls himself the foremost. The trustworthy saying is not a slogan for the already righteous; it is the gospel for those who know their need. This is the foundation from which Paul then urges others to fight the good fight.`,
-        quote: "The lower we are in our own eyes, the higher we are in God’s.",
-        author: "Charles Spurgeon",
+        quote: "The essence of sin is independence of God; the essence of salvation is dependence on God.",
+        author: "Oswald Chambers",
         charge: [
           "Place yourself among the sinners Christ came to save.",
           "Refuse any spiritual posture that pretends you no longer need the same mercy.",
@@ -3084,8 +3123,8 @@
         scripture: "John 8:31-32",
         verse: "Jesus therefore said to those Jews who had believed him, \"If you remain in my word, then you are truly my disciples. You will know the truth, and the truth will make you free.\"",
         body: `True discipleship is marked by remaining in Jesus’ word. From that remaining comes knowledge of the truth, and from the truth comes freedom. The freedom in view is freedom from slavery to sin (as the following verses make clear). Abiding in the word is the path.`,
-        quote: "The Bible is not a book for the journey; it is the journey itself under the Spirit’s guidance.",
-        author: "A.W. Tozer",
+        quote: "Discipleship means adherence to Christ, and, because Christ is the object of that adherence, it must take the form of discipleship.",
+        author: "Dietrich Bonhoeffer",
         charge: [
           "Remain in Christ’s word rather than visiting it occasionally.",
           "Pursue the freedom that comes from knowing the truth.",
@@ -3099,8 +3138,8 @@
         scripture: "John 16:33",
         verse: "I have told you these things, that in me you may have peace. In the world you have trouble; but cheer up! I have overcome the world.",
         body: `Jesus prepares the disciples with realism and encouragement. In the world they will have trouble. In Him they may have peace. The ground of courage is His finished overcoming of the world. Trouble is expected; peace and courage are located in the Overcomer.`,
-        quote: "Worry does not empty tomorrow of its sorrow; it empties today of its strength.",
-        author: "Charles Spurgeon",
+        quote: "There is no way to peace along the way of safety. For peace must be dared. It is itself the great venture.",
+        author: "Dietrich Bonhoeffer",
         charge: [
           "Expect trouble in the world rather than being surprised by it.",
           "Locate your peace in Christ, not in the absence of trouble.",
@@ -3114,8 +3153,8 @@
         scripture: "1 Peter 5:6-7",
         verse: "Humble yourselves therefore under the mighty hand of God, that he may exalt you in due time, casting all your worries on him, because he cares for you.",
         body: `Humility under God’s mighty hand is joined to casting all anxieties on Him. The reason is personal: He cares for you. Exaltation comes in due time. Anxiety and pride are both addressed by the same movement—humble yourself and cast the care.`,
-        quote: "We must do the fighting, but the power for the fight comes from the Spirit.",
-        author: "A.W. Tozer",
+        quote: "He that is down needs fear no fall. He that is low, no pride.",
+        author: "John Bunyan",
         charge: [
           "Humble yourself under God’s mighty hand.",
           "Cast all your anxieties on Him.",
@@ -3219,8 +3258,8 @@
         scripture: "2 Timothy 4:7-8",
         verse: "I have fought the good fight. I have finished the course. I have kept the faith. From now on, the crown of righteousness is stored up for me, which the Lord, the righteous judge, will give to me on that day; and not to me only, but also to all those who have loved his appearing.",
         body: `Paul’s summary is not about starting well. It is about fighting, finishing, and keeping. The crown of righteousness is laid up for him and for all who have loved Christ’s appearing. The goal is a finished course and a kept faith under the eye of the righteous Judge.`,
-        quote: "Love is not primarily a feeling; it is a commitment to act for the good of another.",
-        author: "Larry Crabb",
+        quote: "The church is the church only when it exists for others.",
+        author: "Dietrich Bonhoeffer",
         charge: [
           "Aim at finishing, not merely starting.",
           "Keep the faith under pressure rather than merely professing it in ease.",
@@ -3264,8 +3303,8 @@
         scripture: "John 1:14",
         verse: "The Word became flesh and lived among us. We saw his glory, such glory as of the only born Son of the Father, full of grace and truth.",
         body: `The eternal Word did not remain distant. He became flesh and dwelt among us. The glory seen is that of the only Son from the Father, full of grace and truth. The incarnation is the foundation for everything the Christian man believes and lives.`,
-        quote: "The Spirit-filled life is not a special edition of Christianity; it is Christianity.",
-        author: "A.W. Tozer",
+        quote: "Lord, stamp eternity on my eyeballs.",
+        author: "Jonathan Edwards",
         charge: [
           "Worship the Word who became flesh.",
           "Receive both grace and truth from Him—neither without the other.",
@@ -3279,8 +3318,8 @@
         scripture: "Philippians 4:9",
         verse: "Do the things which you learned, received, heard, and saw in me, and the God of peace will be with you.",
         body: `Practice is required. What was learned, received, heard, and seen in Paul is to be put into practice. The promised presence is the God of peace. Doctrine and example are meant to become lived pattern, and God’s peaceful presence accompanies that obedience.`,
-        quote: "Worry does not empty tomorrow of its sorrow; it empties today of its strength.",
-        author: "Charles Spurgeon",
+        quote: "Action springs not from thought, but from a readiness for responsibility.",
+        author: "Dietrich Bonhoeffer",
         charge: [
           "Put into practice one thing you have learned and received.",
           "Move from hearing to doing.",
@@ -3294,8 +3333,8 @@
         scripture: "Acts 2:38",
         verse: "Peter said to them, \"Repent and be baptized, every one of you, in the name of Jesus Christ for the forgiveness of sins, and you will receive the gift of the Holy Spirit.\"",
         body: `Peter’s response to the convicted crowd is direct: repent and be baptized in the name of Jesus Christ for the forgiveness of sins, and you will receive the Holy Spirit. The gospel call includes repentance, faith expressed in baptism, forgiveness, and the gift of the Spirit.`,
-        quote: "The Holy Spirit is no mere influence; He is a Person who can be grieved, resisted, and quenched.",
-        author: "R.C. Sproul",
+        quote: "When God wants to do an impossible task, He takes an impossible man and crushes him.",
+        author: "Alan Redpath",
         charge: [
           "Keep repentance as an ongoing posture, not a one-time event.",
           "Rest in the forgiveness given in Christ.",
@@ -3339,8 +3378,8 @@
         scripture: "1 Thessalonians 5:8",
         verse: "But let us, who are of the day, be sober, putting on the breastplate of faith and love; and for an helmet, the hope of salvation.",
         body: `Hope of salvation is a helmet. It protects the mind in the battle. A sober man puts on faith, love, and the hope of salvation as armor. Without the helmet of hope the mind is exposed.`,
-        quote: "You are not what you think you are; but what you think, you are.",
-        author: "A.W. Tozer",
+        quote: "The best training for a Christian worker is not to be found in a Bible college, but at the foot of the cross.",
+        author: "Alan Redpath",
         charge: [
           "Put on the helmet of the hope of salvation deliberately today.",
           "When discouragement attacks your thinking, return to that hope.",
@@ -3399,8 +3438,8 @@
         scripture: "Matthew 5:5",
         verse: "Blessed are the meek: for they shall inherit the earth.",
         body: `Meekness is the way of inheritance, not the way of loss. The aggressive may seize for a moment, but the meek receive what God gives and keep it. Trust the promise even when meekness looks like losing.`,
-        quote: "The meek will inherit the earth because they trust the One who owns it.",
-        author: "R.C. Sproul",
+        quote: "The test of the morality of a society is what it does for its children.",
+        author: "Dietrich Bonhoeffer",
         charge: [
           "Choose meekness in one situation where you would normally force an outcome.",
           "Trust God's promise of inheritance.",
@@ -3534,8 +3573,8 @@
         scripture: "2 Corinthians 12:9",
         verse: "And he said unto me, My grace is sufficient for thee: for my strength is made perfect in weakness.",
         body: `God often uses the hammer, the file, and the furnace. Difficulty is not always a sign you have been set aside. It may be the very process that makes you usable. Stay under the hammer. Let the process do its work.`,
-        quote: "It is doubtful whether God can bless a man greatly until He has hurt him deeply.",
-        author: "A.W. Tozer",
+        quote: "God never uses a man greatly until He has hurt him deeply.",
+        author: "Alan Redpath",
         charge: [
           "Ask what the Lord is forging in your current trial instead of only asking for escape.",
           "Share the struggle with one trusted brother.",
@@ -3549,8 +3588,8 @@
         scripture: "1 Peter 5:8-9",
         verse: "Be sober and self-controlled. Be watchful. Your adversary, the devil, walks around like a roaring lion, seeking whom he may devour. Withstand him steadfast in your faith, knowing that your brothers who are in the world are undergoing the same sufferings.",
         body: `Sobriety and watchfulness are required because the adversary prowls like a roaring lion. Resistance is to be firm in the faith, with the knowledge that the same kinds of suffering are being experienced by the brotherhood throughout the world. No one suffers alone.`,
-        quote: "The Spirit-filled life is not a special edition of Christianity; it is Christianity.",
-        author: "A.W. Tozer",
+        quote: "When God gets us alone through suffering, heartbreak, temptation, disappointment, and the sense of His absence, He begins to teach us.",
+        author: "Oswald Chambers",
         charge: [
           "Stay sober-minded about the adversary’s schemes.",
           "Resist him firm in the faith, not in your own grit alone.",
@@ -3579,8 +3618,8 @@
         scripture: "Proverbs 13:3",
         verse: "He that keepeth his mouth keepeth his life: but he that openeth wide his lips shall have destruction.",
         body: `Self-control begins with the mouth for many men. The one who guards his mouth guards his life. Wide-open lips lead to destruction. Temperance in speech is a high form of the Spirit's fruit.`,
-        quote: "The Holy Spirit is no mere influence; He is a Person who can be grieved, resisted, and quenched.",
-        author: "R.C. Sproul",
+        quote: "The man who cannot control his tongue will never control a church or a home.",
+        author: "Tom Nelson",
         charge: [
           "Guard your mouth in one specific relationship today.",
           "Practice silence when words would only damage.",
@@ -3594,8 +3633,8 @@
         scripture: "Isaiah 6:3",
         verse: "And one cried unto another, and said, Holy, holy, holy, is the LORD of hosts: the whole earth is full of his glory.",
         body: `We will never understand the depth of our need or the greatness of the gospel until we recover a vision of the holiness of God. A low view of God produces a low view of sin and a shallow view of grace. A high view of God puts everything else in its place.`,
-        quote: "We must understand that to be a Christian is to be a person who is consumed with the glory of God.",
-        author: "R.C. Sproul",
+        quote: "Don't be afraid of the will of God. Be afraid of missing it.",
+        author: "Alan Redpath",
         charge: [
           "Spend time today simply considering the holiness of God.",
           "Confess any area where you have treated sin lightly because your view of God is small.",
@@ -3714,8 +3753,8 @@
         scripture: "Psalm 23:6",
         verse: "Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.",
         body: `Goodness and mercy follow the man who belongs to the Shepherd. They pursue him. A man who knows he is pursued by goodness is free to extend goodness to others without fear of running out.`,
-        quote: "The Christian is a man who has learned to live under the authority of the Word and the power of the Spirit.",
-        author: "Alistair Begg",
+        quote: "I have often thought that the best of men are but men at best.",
+        author: "John Bunyan",
         charge: [
           "Acknowledge the goodness and mercy that have followed you.",
           "Extend goodness to someone today from the overflow.",
@@ -3744,8 +3783,8 @@
         scripture: "Ephesians 4:30-32",
         verse: "Don’t grieve the Holy Spirit of God, in whom you were sealed for the day of redemption. Let all bitterness, wrath, anger, outcry, and slander be put away from you, with all malice. And be kind to one another, tenderhearted, forgiving each other, just as God also in Christ forgave you.",
         body: `Grieving the Spirit is tied to relational sins—bitterness, wrath, anger, clamor, slander, and malice. The positive alternative is kindness, tenderheartedness, and forgiveness modeled on God’s forgiveness in Christ. Paul is not speaking of vague spirituality; he is speaking of how we treat people.`,
-        quote: "The Holy Spirit is no mere influence; He is a Person who can be grieved, resisted, and quenched.",
-        author: "R.C. Sproul",
+        quote: "The enjoyment of God is the only happiness with which our souls can be satisfied.",
+        author: "Jonathan Edwards",
         charge: [
           "Put away any bitterness or malice you are currently carrying.",
           "Choose kindness and tenderheartedness in a strained relationship.",
@@ -3759,8 +3798,8 @@
         scripture: "Galatians 5:16",
         verse: "This I say then, Walk in the Spirit, and ye shall not fulfil the lust of the flesh.",
         body: `The Christian life is not powered by willpower alone. It is a walk in the Spirit. The flesh remains, but it does not have to rule. The man who learns to walk by the Spirit finds that the desires of the flesh lose their dominating power.`,
-        quote: "The Spirit-filled life is not a special edition of the Christian life; it is the Christian life.",
-        author: "R.C. Sproul",
+        quote: "The one perfect picture of the spiritual life is the unbroken communion of the Son with the Father.",
+        author: "Oswald Chambers",
         charge: [
           "Begin the day by consciously depending on the Spirit rather than on self-effort.",
           "When fleshly desire rises, turn immediately to the Spirit in prayer.",
@@ -3789,8 +3828,8 @@
         scripture: "Colossians 3:12-14",
         verse: "Put on therefore, as God’s chosen ones, holy and beloved, a heart of compassion, kindness, lowliness, humility, and perseverance; bearing with one another, and forgiving each other, if any man has a complaint against any; even as Christ forgave you, so you also do. Above all these things, walk in love, which is the bond of perfection.",
         body: `The new identity—chosen, holy, beloved—carries new clothing: compassion, kindness, humility, meekness, patience, forbearance, forgiveness, and above all love. These are put on deliberately. Love binds the rest together in perfect harmony.`,
-        quote: "The Spirit-filled life is not a special edition of Christianity; it is Christianity.",
-        author: "A.W. Tozer",
+        quote: "The spirit of true love is a humble spirit.",
+        author: "Jonathan Edwards",
         charge: [
           "Put on compassion and kindness deliberately today.",
           "Forgive as Christ has forgiven you.",
@@ -3849,8 +3888,8 @@
         scripture: "Matthew 6:27",
         verse: "Which of you by taking thought can add one cubit unto his stature?",
         body: `Worry changes nothing about tomorrow and depletes today. Jesus asks the piercing question: which of you by worrying can add a single hour? The answer is none. Therefore choose trust instead.`,
-        quote: "Worry does not empty tomorrow of its sorrow; it empties today of its strength.",
-        author: "Charles Spurgeon",
+        quote: "One leak will sink a ship; and one sin will destroy a sinner.",
+        author: "John Bunyan",
         charge: [
           "Stop paying interest on tomorrow's trouble today.",
           "Redirect the energy of worry into prayer and present obedience.",
@@ -3924,8 +3963,8 @@
         scripture: "1 Corinthians 15:58",
         verse: "Therefore, my beloved brothers, be steadfast, immovable, always abounding in the Lord’s work, because you know that your labor is not in vain in the Lord.",
         body: `Because of the resurrection, the beloved brothers are to be steadfast, immovable, and always abounding in the work of the Lord. The labor is not in vain in the Lord. Resurrection hope fuels present perseverance and abundance in service.`,
-        quote: "Hope is the refusal to accept the way things are as the way things will always be, because God has spoken.",
-        author: "John Piper",
+        quote: "The whole point of getting things done is knowing what to leave undone.",
+        author: "Oswald Chambers",
         charge: [
           "Be steadfast and immovable in the work of the Lord.",
           "Abound in that work rather than coasting.",
@@ -3954,8 +3993,8 @@
         scripture: "Ephesians 6:10-11",
         verse: "Finally, be strong in the Lord and in the strength of his might. Put on the whole armor of God, that you may be able to stand against the wiles of the devil.",
         body: `Strength is located in the Lord and in the power of His might—not in native resilience. The whole armor is required so that the man can stand against the schemes of the devil. Partial preparation leaves openings. The fight is real and requires divine strength and full equipment.`,
-        quote: "We must do the fighting, but the power for the fight comes from the Spirit.",
-        author: "A.W. Tozer",
+        quote: "The Christian life is a fight. If you are not fighting, you are losing.",
+        author: "Paul Washer",
         charge: [
           "Locate your strength in the Lord, not in yourself.",
           "Put on the whole armor deliberately today.",
@@ -3999,8 +4038,8 @@
         scripture: "James 4:7",
         verse: "Submit yourselves therefore to God. Resist the devil, and he will flee from you.",
         body: `Submission to God is the path to freedom, not the loss of it. The man who will not submit remains under the influence of every other master—sin, self, the devil, the opinions of people. True freedom begins when the will bows to the Lord.`,
-        quote: "The greatest freedom is found in the greatest submission to God.",
-        author: "A.W. Tozer",
+        quote: "A man's heart is what he is when the lights are out and nobody is watching.",
+        author: "Alan Redpath",
         charge: [
           "Submit one resistant area of your will to God today.",
           "Resist the devil from the position of submission, not from self-effort.",
@@ -4074,8 +4113,8 @@
         scripture: "Psalm 77:1-2",
         verse: "I cried unto God with my voice... In the day of my trouble I sought the Lord: my sore ran in the night, and ceased not: my soul refused to be comforted.",
         body: `Sometimes the soul refuses to be comforted. The psalmist kept crying and seeking. Lingering depression is not always a sign of faithlessness. Keep seeking. Keep crying out. God can handle the unrelieved night.`,
-        quote: "Truth is not a thing to be possessed; it is a Person to be followed.",
-        author: "Dietrich Bonhoeffer",
+        quote: "When God gets us alone through suffering, heartbreak, temptation, disappointment, and the sense of His absence, He begins to teach us.",
+        author: "Oswald Chambers",
         charge: [
           "Continue seeking God even when comfort does not come immediately.",
           "Do not interpret delayed comfort as abandonment.",
@@ -4089,8 +4128,8 @@
         scripture: "Matthew 26:41",
         verse: "Watch and pray, that ye enter not into temptation: the spirit indeed is willing, but the flesh is weak.",
         body: `Watch and pray. The spirit may be willing, but the flesh is weak. Many falls begin with a failure to watch. Discipline includes staying alert to the approach of temptation and meeting it with prayer.`,
-        quote: "Watchfulness is the price of freedom from the power of temptation.",
-        author: "A.W. Tozer",
+        quote: "Revival is the people of God becoming dissatisfied with their spiritual condition and crying out for more of God.",
+        author: "Alan Redpath",
         charge: [
           "Identify the times and places where you are most vulnerable.",
           "Build a simple watch-and-pray habit around those points.",
@@ -4119,8 +4158,8 @@
         scripture: "1 Peter 3:14-15",
         verse: "But even if you should suffer for righteousness’ sake, you are blessed. \"Don’t fear what they fear, neither be troubled.\" But sanctify the Lord God in your hearts. Always be ready to give an answer to everyone who asks you a reason concerning the hope that is in you, with humility and fear.",
         body: `Suffering for righteousness is a blessing. Fear is forbidden. Christ the Lord is to be honored as holy in the heart. Readiness to defend the hope is required, yet with gentleness and respect. Courage and humility travel together.`,
-        quote: "The lower we are in our own eyes, the higher we are in God’s.",
-        author: "Charles Spurgeon",
+        quote: "The best, most beautiful, and most perfect way that we have of expressing a sweet concord of mind to each other is by music.",
+        author: "Jonathan Edwards",
         charge: [
           "Honor Christ the Lord as holy in your heart.",
           "Be ready to give a reason for the hope in you.",
@@ -4164,8 +4203,8 @@
         scripture: "Galatians 5:16",
         verse: "But I say, walk by the Spirit, and you won't fulfill the lust of the flesh.",
         body: `Walking by the Spirit is the positive alternative to fulfilling the flesh. It is not merely trying harder to say no. It is depending on the Spirit moment by moment.`,
-        quote: "The Holy Spirit is no mere influence; He is a Person who can be grieved, resisted, and quenched.",
-        author: "R.C. Sproul",
+        quote: "We have to pray with our eyes on God, not on the difficulties.",
+        author: "Oswald Chambers",
         charge: [
           "Begin the day depending on the Spirit.",
           "When fleshly desire rises, turn to the Spirit.",
@@ -4179,8 +4218,8 @@
         scripture: "Titus 3:4-7",
         verse: "But when the kindness of God our Savior and his love toward mankind appeared, not by works of righteousness which we did ourselves, but according to his mercy, he saved us through the washing of regeneration and renewing by the Holy Spirit, whom he poured out on us richly through Jesus Christ our Savior, that being justified by his grace, we might be made heirs according to the hope of eternal life.",
         body: `Salvation appeared because of God’s kindness and love, not because of works we had done. It came by mercy, through regeneration and renewal by the Spirit, poured out richly through Christ. Justification by grace makes us heirs. This is the ground of Christian living, not a footnote.`,
-        quote: "The Holy Spirit is no mere influence; He is a Person who can be grieved, resisted, and quenched.",
-        author: "R.C. Sproul",
+        quote: "We are not here to prove God answers prayer; we are here to be living monuments of God's grace.",
+        author: "Oswald Chambers",
         charge: [
           "Rest in the mercy that saved you, not in your own works.",
           "Remember the rich pouring out of the Spirit through Christ.",
@@ -4254,8 +4293,8 @@
         scripture: "Ephesians 6:12",
         verse: "For we wrestle not against flesh and blood, but against principalities, against powers, against the rulers of the darkness of this world, against spiritual wickedness in high places.",
         body: `The real fight is not against the people in front of you. It is against spiritual forces of evil. When a man forgets this he either attacks the wrong target or is caught unarmed. Put on the armor. Stand. Fight the real enemy.`,
-        quote: "The Holy Spirit is no mere influence; He is a Person who can be grieved, resisted, and quenched.",
-        author: "R.C. Sproul",
+        quote: "A soft gospel produces soft men. A true gospel produces men who will die before they deny Christ.",
+        author: "Paul Washer",
         charge: [
           "Identify where you have been fighting flesh and blood instead of the real enemy.",
           "Put on the full armor of God deliberately in prayer today.",
@@ -4284,8 +4323,8 @@
         scripture: "Ephesians 5:21",
         verse: "subjecting yourselves to one another in the fear of Christ.",
         body: `Before Paul addresses wives, husbands, children, and servants, he gives the general heading: submitting to one another out of reverence for Christ. Mutual submission under Christ’s lordship is the atmosphere for all the specific household instructions that follow. It is not optional background; it is the governing principle.`,
-        quote: "Love is not primarily a feeling; it is a commitment to act for the good of another.",
-        author: "Larry Crabb",
+        quote: "You cannot have Christ as Savior and not have Him as Lord. The two are inseparable.",
+        author: "Paul Washer",
         charge: [
           "Practice mutual submission in one relationship today out of reverence for Christ.",
           "Refuse the posture that only others should yield.",
@@ -4404,8 +4443,8 @@
         scripture: "Titus 1:9",
         verse: "holding to the faithful word which is according to the teaching, that he may be able to exhort in the sound doctrine, and to convict those who contradict him.",
         body: `In the qualifications for elders, Paul requires a man who holds firmly to the trustworthy word. The purpose is twofold: to exhort in sound doctrine and to refute those who contradict. Leadership requires both positive teaching and the ability to correct error.`,
-        quote: "The lower we are in our own eyes, the higher we are in God’s.",
-        author: "Charles Spurgeon",
+        quote: "Preaching without application is like a doctor diagnosing without prescribing.",
+        author: "Tom Nelson",
         charge: [
           "Hold firmly to the trustworthy word yourself before trying to teach others.",
           "Grow in the ability both to exhort and to refute error.",
@@ -4449,8 +4488,8 @@
         scripture: "1 Corinthians 16:13",
         verse: "Watch ye, stand fast in the faith, quit you like men, be strong.",
         body: `The order is deliberate: Watch because the threat is real. Stand fast in the faith because the gospel is the ground. Act like men because courage is required. Be strong because the battle is not for the faint. This is a command for men who intend to finish.`,
-        quote: "Faith is the gaze of a soul upon a saving God.",
-        author: "A.W. Tozer",
+        quote: "The gospel is not a thing to be toyed with. It is the power of God unto salvation.",
+        author: "Paul Washer",
         charge: [
           "Choose one concrete way to watch today.",
           "Reaffirm the core of the faith: Christ died for sins, was buried, and rose again.",
@@ -4509,8 +4548,8 @@
         scripture: "Psalm 34:18",
         verse: "The LORD is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.",
         body: `The Lord is near the brokenhearted. Depression often feels like distance from God, yet the promise is nearness. The contrite and crushed are not abandoned; they are the very ones He saves and draws close to. Take the promise over the feeling.`,
-        quote: "The Holy Spirit is no mere influence; He is a Person who can be grieved, resisted, and quenched.",
-        author: "R.C. Sproul",
+        quote: "True liberty is found only under the authority of the Word of God.",
+        author: "Alan Redpath",
         charge: [
           "Claim the nearness of God even when feelings say otherwise.",
           "Bring the broken heart honestly rather than pretending strength.",
@@ -4539,8 +4578,8 @@
         scripture: "Acts 4:12",
         verse: "There is salvation in no one else, for there is no other name under heaven that is given among men by which we must be saved!",
         body: `Peter’s declaration before the council is exclusive and universal: salvation in no one else, no other name under heaven given among men by which we must be saved. The uniqueness of Christ is not a secondary doctrine; it is the center of the apostolic witness under pressure.`,
-        quote: "The Bible is not a book for the journey; it is the journey itself under the Spirit’s guidance.",
-        author: "A.W. Tozer",
+        quote: "The difference between true and false repentance lies in this: the first makes a man hate sin, the second makes him hate the consequences.",
+        author: "John Bunyan",
         charge: [
           "Hold the exclusivity of Christ without embarrassment.",
           "Refuse any addition of other names for salvation.",
@@ -4599,8 +4638,8 @@
         scripture: "2 Timothy 2:3-4",
         verse: "You therefore must endure hardship as a good soldier of Christ Jesus. No soldier on duty entangles himself in the affairs of life, that he may please him who enrolled him as a soldier.",
         body: `The good soldier endures hardship and avoids entanglement in civilian pursuits so that he may please the one who enlisted him. Paul is not despising ordinary life; he is calling for single-minded focus in the service of Christ, especially under pressure.`,
-        quote: "The lower we are in our own eyes, the higher we are in God’s.",
-        author: "Charles Spurgeon",
+        quote: "A man may cry out against sin of policy, but he cannot abhor it but by virtue of a godly antipathy against it.",
+        author: "John Bunyan",
         charge: [
           "Endure the present hardship as a good soldier of Christ.",
           "Identify any entanglement that is dulling your focus.",
@@ -4659,8 +4698,8 @@
         scripture: "1 Corinthians 16:13-14",
         verse: "Watch ye, stand fast in the faith, quit you like men, be strong. Let all your things be done with charity.",
         body: `Christianity does not produce soft men. The Christian man is free, brave, and fearless because his ultimate allegiance is settled. Soft religion is a counterfeit. Real faith forges men who watch, stand, act like men, and remain strong—while doing it in love.`,
-        quote: "The Christian man… is the noblest style of man; the freest, bravest, most heroic, and most fearless of men.",
-        author: "Charles Spurgeon",
+        quote: "Temptations, when we meet them at first, are as the lion that roared upon Samson; but if we overcome them, the next time we see them we shall find a nest of honey within them.",
+        author: "John Bunyan",
         charge: [
           "Refuse one soft compromise that would make your faith look negotiable.",
           "Lead in one concrete way that requires courage rather than consensus.",
@@ -4734,8 +4773,8 @@
         scripture: "Luke 16:10",
         verse: "He who is faithful in a very little is faithful also in much. He who is dishonest in a very little is also dishonest in much.",
         body: `Faithfulness is tested in the small things long before the large ones arrive. The man who is careless with little will be careless with much. God notices the very little.`,
-        quote: "Worry does not empty tomorrow of its sorrow; it empties today of its strength.",
-        author: "Charles Spurgeon",
+        quote: "Finish the race. Many start well. Few end well. The difference is daily faithfulness.",
+        author: "Tom Nelson",
         charge: [
           "Treat one small responsibility today as if it matters eternally.",
           "Stop waiting for a larger platform before being faithful.",
@@ -4794,8 +4833,8 @@
         scripture: "1 Corinthians 16:13",
         verse: "Watch! Stand firm in the faith! Be courageous! Be strong!",
         body: `Watch. Stand firm. Be courageous. Be strong. The commands are for men who intend to finish. Christian manliness is the refusal to quit when the cost rises.`,
-        quote: "The cross is the lightning rod of grace that short-circuits God’s wrath against me.",
-        author: "R.C. Sproul",
+        quote: "Run when I can, walk when I cannot run, creep when I cannot walk — but keep going toward the Celestial City.",
+        author: "John Bunyan",
         charge: [
           "Watch today in the ordinary places of temptation.",
           "Stand firm when it would be easier to drift.",
@@ -4809,8 +4848,8 @@
         scripture: "Hebrews 12:1-2",
         verse: "…let us run with patience the race that is set before us, Looking unto Jesus the author and finisher of our faith…",
         body: `Endurance is not glamorous, but it is essential. Many men start well. Fewer finish well. The race requires patience, the laying aside of weights, and a fixed gaze on Jesus. Looking away from Him is the beginning of fading.`,
-        quote: "Endurance is the ability to keep going when everything in you wants to quit—because Christ is worth it.",
-        author: "Chuck Swindoll",
+        quote: "Accountability is not optional for men who want to finish well.",
+        author: "Tom Nelson",
         charge: [
           "Name one weight you need to lay aside so you can keep running.",
           "Fix your eyes on Jesus deliberately in the middle of today’s pressure.",
@@ -4944,8 +4983,8 @@
         scripture: "Ephesians 4:15",
         verse: "but speaking truth in love, we may grow up in all things into him who is the head, Christ.",
         body: `Truth without love becomes harsh. Love without truth becomes soft. Maturity requires speaking the truth in love so that the body grows up into Christ.`,
-        quote: "Love is not primarily a feeling; it is a commitment to act for the good of another.",
-        author: "Larry Crabb",
+        quote: "The local church is not a stage for performance. It is a family for formation.",
+        author: "Tom Nelson",
         charge: [
           "Speak one necessary truth today wrapped in genuine love.",
           "Refuse both harshness and silence.",
@@ -4974,8 +5013,8 @@
         scripture: "Romans 1:16-17",
         verse: "For I am not ashamed of the Good News of Christ, because it is the power of God for salvation for everyone who believes, for the Jew first, and also for the Greek. For in it is revealed God’s righteousness from faith to faith. As it is written, \"But the righteous shall live by faith.\"",
         body: `Paul is not ashamed of the gospel because it is God’s power for salvation to everyone who believes. In it God’s righteousness is revealed from faith to faith. The citation from Habakkuk grounds the entire letter: the righteous shall live by faith. This is the theme that will unfold through Romans.`,
-        quote: "Faith is the gaze of a soul upon a saving God.",
-        author: "A.W. Tozer",
+        quote: "Most of what is called Christianity today is not Christianity. It is a weak, anemic substitute that does not demand repentance.",
+        author: "Paul Washer",
         charge: [
           "Refuse shame over the gospel.",
           "Live by faith rather than by performance as the ground of righteousness.",
@@ -5019,8 +5058,8 @@
         scripture: "Romans 12:9-10",
         verse: "Let love be without hypocrisy. Abhor that which is evil. Cling to that which is good. In love of the brothers be tenderly affectionate to one another; in honor prefer one another.",
         body: `Love is to be genuine—without hypocrisy. It hates evil and clings to good. Brotherly love is to be tenderly affectionate, and honor is to be preferred toward one another. These are concrete marks of the renewed community.`,
-        quote: "Forgiveness is not optional for those who have been forgiven.",
-        author: "Chuck Swindoll",
+        quote: "The remarkable thing about God is that when you fear God, you fear nothing else; whereas if you do not fear God, you fear everything else.",
+        author: "Oswald Chambers",
         charge: [
           "Practice love without hypocrisy today.",
           "Abhor evil and cling to good in a specific choice.",
@@ -5049,8 +5088,8 @@
         scripture: "Philippians 4:6-7",
         verse: "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.",
         body: `Worry is a thief. It steals peace, focus, and strength for the present. The alternative is not denial; it is prayer with thanksgiving. Bring the specific request. Leave it with God. Receive the peace that stands guard over heart and mind.`,
-        quote: "Worry does not empty tomorrow of its sorrow; it empties today of its strength.",
-        author: "Charles Spurgeon",
+        quote: "There is no way that Christians, in a private capacity, can do so much to promote the work of God as by prayer.",
+        author: "Jonathan Edwards",
         charge: [
           "Write the specific worries and turn each into a request with thanksgiving.",
           "Refuse to rehearse the worry after you have prayed it.",
@@ -5079,8 +5118,8 @@
         scripture: "John 17:17",
         verse: "Sanctify them in your truth. Your word is truth.",
         body: `In His high priestly prayer Jesus asks the Father to sanctify the disciples in the truth. He identifies the Father’s word as truth. Sanctification is not a vague elevation of mood; it is being set apart in and by the truth of God’s word.`,
-        quote: "Prayer is the slender nerve that moves the muscle of omnipotence.",
-        author: "Charles Spurgeon",
+        quote: "The happiness of the creature consists in rejoicing in God, by which also God is magnified and exalted.",
+        author: "Jonathan Edwards",
         charge: [
           "Submit to sanctification by the truth of God’s word.",
           "Refuse any version of holiness that detaches from Scripture.",
@@ -5124,8 +5163,8 @@
         scripture: "Colossians 3:5-8",
         verse: "Put to death therefore your members which are on the earth: sexual immorality, uncleanness, depraved passion, evil desire, and covetousness, which is idolatry... But now you must put them all away: anger, wrath, malice, slander, and shameful speaking out of your mouth.",
         body: `Because the believer has died and been raised with Christ, the earthly members are to be put to death—specific vices of desire and of speech and temper. This is not gradual tolerance of sin; it is decisive execution. The list is concrete so that self-examination can be concrete.`,
-        quote: "Faith is the gaze of a soul upon a saving God.",
-        author: "A.W. Tozer",
+        quote: "It is said that in some countries trees will grow, but will bear no fruit because there is no winter there.",
+        author: "John Bunyan",
         charge: [
           "Put to death one specific earthly desire or practice today.",
           "Put away anger, malice, or corrupt speech where it has lingered.",
@@ -5199,8 +5238,8 @@
         scripture: "1 Peter 1:22",
         verse: "Seeing ye have purified your souls in obeying the truth through the Spirit unto unfeigned love of the brethren, see that ye love one another with a pure heart fervently.",
         body: `Love for the brothers is to be earnest and from a pure heart. It is the overflow of souls purified by obedience to the truth. A man who claims purified faith yet loves the brothers half-heartedly is still incomplete.`,
-        quote: "Fervent love for the brothers is the evidence of a purified soul.",
-        author: "Alistair Begg",
+        quote: "It is easier to serve God without a vision, easier to work for God without a call, because then you are not bothered by what God requires.",
+        author: "Oswald Chambers",
         charge: [
           "Love one brother fervently and practically today.",
           "Examine whether your love is genuine or only polite.",
@@ -5274,8 +5313,8 @@
         scripture: "2 Timothy 2:15",
         verse: "Give diligence to present yourself approved by God, a workman who doesn’t need to be ashamed, properly handling the word of truth.",
         body: `Diligence is required to present oneself approved to God. The approved worker is one who rightly handles the word of truth and therefore has no need for shame. Careless handling of Scripture is a path to shame; careful handling is a path to approval.`,
-        quote: "Worry does not empty tomorrow of its sorrow; it empties today of its strength.",
-        author: "Charles Spurgeon",
+        quote: "The Word of God well understood and religiously obeyed is the shortest route to spiritual perfection.",
+        author: "A.W. Tozer",
         charge: [
           "Give diligence to handling the word of truth carefully.",
           "Refuse to use verses merely for effect.",
@@ -5289,8 +5328,8 @@
         scripture: "Colossians 4:2",
         verse: "Continue steadfastly in prayer, watching in it with thanksgiving.",
         body: `Paul links steadfast prayer with watchfulness and thanksgiving. Prayer is not a sporadic emergency measure. It is continued, alert, and grateful. A man who only prays when crisis hits has not yet learned this pattern.`,
-        quote: "Prayer is the slender nerve that moves the muscle of omnipotence.",
-        author: "Charles Spurgeon",
+        quote: "A little, pure, humble, and divine light, is far better than a great deal of knowledge without it.",
+        author: "Jonathan Edwards",
         charge: [
           "Build steadfastness into your prayer rather than only crisis prayer.",
           "Watch in prayer—stay alert rather than drifting.",
@@ -5424,8 +5463,8 @@
         scripture: "Luke 9:23",
         verse: "He said to all, \"If anyone desires to come after me, let him deny himself, take up his cross, and follow me.\"",
         body: `Discipleship is daily. Self-denial is not a one-time crisis. The cross is not optional equipment. The man who wants the benefits of Christ without the cost of following has not yet understood the call.`,
-        quote: "The cross is the lightning rod of grace that short-circuits God’s wrath against me.",
-        author: "R.C. Sproul",
+        quote: "The cost of discipleship is high. The cost of non-discipleship is higher.",
+        author: "Tom Nelson",
         charge: [
           "Name the specific form of self-denial required of you today.",
           "Take up the cross that belongs to this day.",
@@ -5439,8 +5478,8 @@
         scripture: "James 5:16",
         verse: "Confess your faults one to another, and pray one for another, that ye may be healed…",
         body: `Courage is required not only for public stands but for private confession. Many men will fight external battles yet hide internal ones. Healing is linked to confession and mutual prayer. Isolation keeps the wound open.`,
-        quote: "Confession is the way out of the isolation that shame creates.",
-        author: "Larry Crabb",
+        quote: "Prayer is not preparation for the battle. Prayer is the battle.",
+        author: "Alan Redpath",
         charge: [
           "Confess one real fault to a trusted brother this week.",
           "Pray for one another rather than only advising.",
@@ -5454,8 +5493,8 @@
         scripture: "Ephesians 6:10-11",
         verse: "Finally, my brethren, be strong in the Lord, and in the power of his might. Put on the whole armour of God, that ye may be able to stand against the wiles of the devil.",
         body: `Christianity does not merely heal the wounded soldier. It girds him with armor, gives him a sword, teaches him to fight, and makes a hero of him if he yields to its full power. We are called to spiritual conflict, not religious sentiment.`,
-        quote: "Christianity… girds me with armor, it gives me a sword, it teaches me to fight, and it makes a hero of me if I yield myself to its full power.",
-        author: "Charles Spurgeon",
+        quote: "You don't just keep people busy. You mature them from a baby to a faithful man, to a leader who reproduces others.",
+        author: "Tom Nelson",
         charge: [
           "Consciously put on the armor of God in prayer this morning.",
           "Identify the primary front where the enemy is pressing you and fight there.",
@@ -5544,8 +5583,8 @@
         scripture: "Colossians 3:16",
         verse: "Let the word of Christ dwell in you richly; in all wisdom teaching and admonishing one another with psalms, hymns, and spiritual songs, singing with grace in your heart to the Lord.",
         body: `The word of Christ is to dwell richly—not sparsely. The result is mutual teaching and admonition, and worship that rises from the heart. A man whose life is thinly stocked with the word will have little to give others and little song to the Lord.`,
-        quote: "The Bible is not a book for the journey; it is the journey itself under the Spirit’s guidance.",
-        author: "A.W. Tozer",
+        quote: "Seek not to grow in knowledge chiefly for the sake of applause, but for the benefit of your souls.",
+        author: "Jonathan Edwards",
         charge: [
           "Increase the dwelling-place of Christ’s word in your mind this week.",
           "Use what dwells in you to teach or admonish another with wisdom.",
@@ -5604,8 +5643,8 @@
         scripture: "1 Peter 1:22",
         verse: "Seeing you have purified your souls in your obedience to the truth through the Spirit in sincere brotherly affection, love one another from the heart fervently.",
         body: `Purification of soul in obedience to the truth leads to sincere brotherly love. The command is to love one another earnestly from a pure heart. Truth-driven purification produces fervent love, not cold orthodoxy.`,
-        quote: "Love is not primarily a feeling; it is a commitment to act for the good of another.",
-        author: "Larry Crabb",
+        quote: "God does not give us overcoming life; He gives us life as we overcome.",
+        author: "Oswald Chambers",
         charge: [
           "Love the brothers earnestly from a pure heart.",
           "Let obedience to the truth fuel sincere affection.",
@@ -5724,8 +5763,8 @@
         scripture: "2 Timothy 4:7-8",
         verse: "I have fought a good fight, I have finished my course, I have kept the faith: Henceforth there is laid up for me a crown of righteousness…",
         body: `The goal is not merely to start well. It is to finish. Many men begin with zeal and fade under the long pressure of ordinary faithfulness. The crown is for those who fight the good fight, finish the course, and keep the faith to the end.`,
-        quote: "The Christian life is not a sprint; it is a marathon of faithful endurance.",
-        author: "Chuck Swindoll",
+        quote: "The goal is not to gather a crowd. The goal is to make disciples who make disciples.",
+        author: "Tom Nelson",
         charge: [
           "Evaluate whether you are currently running to finish or merely coasting.",
           "Re-commit to the long obedience in the same direction.",
@@ -5739,8 +5778,8 @@
         scripture: "Philippians 4:6-7",
         verse: "In nothing be anxious, but in everything, by prayer and petition with thanksgiving, let your requests be made known to God. And the peace of God, which surpasses all understanding, will guard your hearts and your thoughts in Christ Jesus.",
         body: `The replacement for anxiety is prayer and petition with thanksgiving. Specific requests made known to God open the door to the peace that stands guard over heart and mind.`,
-        quote: "Worry does not empty tomorrow of its sorrow; it empties today of its strength.",
-        author: "Charles Spurgeon",
+        quote: "Prayer is a sincere, sensible, affectionate pouring out of the heart to God through Christ.",
+        author: "John Bunyan",
         charge: [
           "Turn each anxious thought into a specific request with thanksgiving.",
           "Leave the request with God.",
@@ -5784,8 +5823,8 @@
         scripture: "1 Peter 3:8-9",
         verse: "Finally, all of you be like-minded, compassionate, loving as brothers, tenderhearted, courteous, not rendering evil for evil or insult for insult; but instead blessing, knowing that you were called to this, that you may inherit a blessing.",
         body: `The summary for all is unity of mind, sympathy, brotherly love, a tender heart, and humility. Evil and insult are not to be repaid in kind; blessing is to be given instead. The calling is to inherit a blessing, and the path is blessing others.`,
-        quote: "Forgiveness is not optional for those who have been forgiven.",
-        author: "Chuck Swindoll",
+        quote: "The greatest test of a man's character is how he treats those who can be of no possible use to him.",
+        author: "Oswald Chambers",
         charge: [
           "Respond to evil and insult with blessing.",
           "Cultivate sympathy, brotherly love, and a tender heart.",
@@ -6130,7 +6169,88 @@
       });
     }
 
-    // Event listeners
+
+    // ---- Read Aloud (Web Speech API) ----
+    let currentUtterance = null;
+    let voicesLoaded = false;
+
+    function populateVoices() {
+      const select = document.getElementById('voiceSelect');
+      if (!select || !window.speechSynthesis) return;
+      const voices = speechSynthesis.getVoices();
+      if (!voices.length) return;
+      const current = select.value;
+      select.innerHTML = '<option value="">Default voice</option>';
+      // Prefer English voices, put male-sounding ones first when possible
+      const en = voices.filter(v => /en(-|_)/i.test(v.lang) || /english/i.test(v.name));
+      const list = en.length ? en : voices;
+      list.forEach((v, i) => {
+        const opt = document.createElement('option');
+        opt.value = v.name;
+        opt.textContent = v.name + (v.lang ? ' (' + v.lang + ')' : '');
+        select.appendChild(opt);
+      });
+      if (current) select.value = current;
+      voicesLoaded = true;
+    }
+
+    function buildSpeakText(d) {
+      const charges = (d.charge || []).map((c, i) => (i + 1) + '. ' + c).join('. ');
+      return [
+        d.title + '.',
+        'Scripture. ' + d.scripture + '.',
+        d.verse,
+        'Teaching. ' + d.body,
+        'Quote. ' + d.quote + '. ' + d.author + '.',
+        'The Charge. ' + charges,
+        'Prayer. ' + d.prayer
+      ].join(' ');
+    }
+
+    function stopSpeaking() {
+      if (window.speechSynthesis) speechSynthesis.cancel();
+      currentUtterance = null;
+      const btn = document.getElementById('speakBtn');
+      if (btn) {
+        btn.textContent = 'Read Aloud';
+        btn.classList.remove('speaking');
+      }
+    }
+
+    function speakCurrent() {
+      if (!window.speechSynthesis) {
+        showToast('Speech not supported on this device');
+        return;
+      }
+      const btn = document.getElementById('speakBtn');
+      // Toggle off if already speaking
+      if (speechSynthesis.speaking) {
+        stopSpeaking();
+        return;
+      }
+      const d = devotions[currentIndex];
+      const text = buildSpeakText(d);
+      const u = new SpeechSynthesisUtterance(text);
+      u.rate = 0.92;
+      u.pitch = 1.0;
+      const selected = document.getElementById('voiceSelect').value;
+      const voices = speechSynthesis.getVoices();
+      if (selected) {
+        const match = voices.find(v => v.name === selected);
+        if (match) u.voice = match;
+      }
+      u.onend = () => stopSpeaking();
+      u.onerror = () => stopSpeaking();
+      currentUtterance = u;
+      btn.textContent = 'Stop';
+      btn.classList.add('speaking');
+      speechSynthesis.speak(u);
+    }
+
+    // Stop speech when changing days
+    const _origRender = typeof render === 'function' ? null : null;
+
+        // Event listeners
     document.getElementById('prevBtn').addEventListener('click', () => {
       currentIndex = (currentIndex - 1 + devotions.length) % devotions.length;
       render();
@@ -6165,7 +6285,27 @@
       }
     });
 
-    // Register service worker for offline use (when served over http/https)
+
+    // Voice controls
+    if (window.speechSynthesis) {
+      populateVoices();
+      if (speechSynthesis.onvoiceschanged !== undefined) {
+        speechSynthesis.onvoiceschanged = populateVoices;
+      }
+      // iOS sometimes needs a delayed refresh
+      setTimeout(populateVoices, 400);
+      setTimeout(populateVoices, 1200);
+    }
+    const speakBtn = document.getElementById('speakBtn');
+    if (speakBtn) speakBtn.addEventListener('click', speakCurrent);
+
+    // Stop speech when navigating days
+    document.getElementById('prevBtn').addEventListener('click', stopSpeaking);
+    document.getElementById('nextBtn').addEventListener('click', stopSpeaking);
+    document.getElementById('todayBtn').addEventListener('click', stopSpeaking);
+
+
+        // Register service worker for offline use (when served over http/https)
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('./sw.js').catch(() => {});
     }
