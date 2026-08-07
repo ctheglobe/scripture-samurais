@@ -100,6 +100,27 @@
       color: var(--text);
       text-align: center;
       flex: 1;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      padding: 0.45rem 0.6rem;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      transition: all 0.18s;
+    }
+
+    .date-display:hover,
+    .date-display:focus {
+      border-color: var(--accent-dim);
+      background: var(--accent-glow);
+      color: var(--accent);
+      outline: none;
+    }
+
+    .date-display::after {
+      content: ' ▾';
+      font-size: 0.75em;
+      opacity: 0.55;
+      letter-spacing: 0;
     }
 
     .day-hint {
@@ -110,10 +131,88 @@
       margin-bottom: 1.25rem;
     }
 
+    .day-picker {
+      display: none;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.1rem 1.1rem;
+      margin: -0.35rem 0 1rem;
+      position: relative;
+    }
+    .day-picker.open { display: block; }
+    .day-picker::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-dim), var(--accent), var(--accent-dim));
+      border-radius: 10px 10px 0 0;
+    }
+    .day-picker-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.64rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.65rem;
+      font-weight: 600;
+    }
+    .day-picker-row {
+      display: flex;
+      gap: 0.55rem;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 0.65rem;
+    }
+    .day-picker-row:last-of-type { margin-bottom: 0; }
+    .day-picker input[type="date"],
+    .day-picker input[type="number"] {
+      flex: 1;
+      min-width: 0;
+      background: var(--bg-elevated);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.6rem 0.7rem;
+      font-size: 0.9rem;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .day-picker input[type="number"] {
+      max-width: 5.5rem;
+      text-align: center;
+    }
+    .day-picker input:focus {
+      outline: none;
+      border-color: var(--accent-dim);
+    }
+    .day-picker .picker-go {
+      background: var(--accent);
+      color: #0b0b0d;
+      border: none;
+      border-radius: 8px;
+      padding: 0.6rem 1rem;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+    .day-picker .picker-go:active { opacity: 0.9; }
+    .day-picker-hint {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-top: 0.55rem;
+      line-height: 1.35;
+    }
+
     .voice-bar {
       display: flex;
       gap: 0.5rem;
       align-items: center;
+
       margin: 0.85rem 0 0.4rem;
       flex-wrap: wrap;
     }
@@ -463,10 +562,25 @@
 
     <div class="date-nav">
       <button class="nav-btn" id="prevBtn" aria-label="Previous day">‹</button>
-      <div class="date-display" id="dateDisplay"></div>
+      <div class="date-display" id="dateDisplay" role="button" tabindex="0" aria-label="Jump to a day" title="Tap to jump to any day"></div>
       <button class="nav-btn" id="nextBtn" aria-label="Next day">›</button>
     </div>
-    <div class="day-hint">One teaching per day · Use arrows to browse</div>
+    <div class="day-hint">One teaching per day · Tap the date to jump · Arrows to browse</div>
+
+    <div class="day-picker" id="dayPicker" aria-hidden="true">
+      <div class="day-picker-label">Jump to a day</div>
+      <div class="day-picker-row">
+        <input type="date" id="pickerDate" aria-label="Choose a calendar date">
+        <button type="button" class="picker-go" id="pickerDateGo">Go</button>
+      </div>
+      <div class="day-picker-row">
+        <span style="font-size:0.78rem;color:var(--text-muted);white-space:nowrap;">Day of year</span>
+        <input type="number" id="pickerDayNum" min="1" max="366" step="1" inputmode="numeric" aria-label="Day of year 1 to 366">
+        <button type="button" class="picker-go" id="pickerDayGo">Go</button>
+      </div>
+      <div class="day-picker-hint">Calendar date uses the day-of-year for that date. Day numbers run 1–366 to match the full set of teachings.</div>
+    </div>
+
 
     <div class="voice-bar">
       <button class="btn btn-speak" id="speakBtn">Read Aloud</button>
@@ -6026,23 +6140,56 @@
       updateFavButton();
     }
 
+    function indexToDisplayDate(index) {
+      const today = new Date();
+      const todayIndex = getDayOfYear(today) % devotions.length;
+      const offset = index - todayIndex;
+      const d = new Date(today);
+      d.setDate(d.getDate() + offset);
+      return d;
+    }
+
+    function toISODate(date) {
+      const y = date.getFullYear();
+      const m = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      return `${y}-${m}-${day}`;
+    }
+
+    /** Day-of-year label 1–366 aligned with getDayOfYear % 366 mapping */
+    function indexToDayNum(index) {
+      // Inverse of: index = dayOfYear % 366, where dayOfYear is 1..366
+      // day 366 → index 0; day 1 → index 1; ... day 365 → index 365
+      return index === 0 ? 366 : index;
+    }
+
+    function dayNumToIndex(dayNum) {
+      const n = Math.max(1, Math.min(366, parseInt(dayNum, 10) || 1));
+      return n % devotions.length;
+    }
+
     function render() {
       const d = devotions[currentIndex];
       const today = new Date();
       const todayIndex = getDayOfYear(today) % devotions.length;
+      const displayDate = indexToDisplayDate(currentIndex);
+      const dayNum = indexToDayNum(currentIndex);
 
       let dayLabel = '';
       if (currentIndex === todayIndex) {
         dayLabel = formatDate(today) + ' · Today';
       } else {
-        // Approximate display date by offset
-        const offset = currentIndex - todayIndex;
-        const displayDate = new Date(today);
-        displayDate.setDate(displayDate.getDate() + offset);
         dayLabel = formatDate(displayDate);
       }
+      dayLabel += ' · Day ' + dayNum;
 
       document.getElementById('dateDisplay').textContent = dayLabel;
+
+      // Keep picker fields in sync when closed/open
+      const pickerDate = document.getElementById('pickerDate');
+      const pickerDayNum = document.getElementById('pickerDayNum');
+      if (pickerDate) pickerDate.value = toISODate(displayDate);
+      if (pickerDayNum) pickerDayNum.value = String(dayNum);
 
       const bodyHtml = d.body.split(/\n\n+/).map(p => `<p>${p.trim()}</p>`).join('');
 
@@ -6079,6 +6226,56 @@
       updateFavButton();
       document.getElementById('favoritesPanel').classList.remove('open');
     }
+
+    function closeDayPicker() {
+      const panel = document.getElementById('dayPicker');
+      if (!panel) return;
+      panel.classList.remove('open');
+      panel.setAttribute('aria-hidden', 'true');
+    }
+
+    function openDayPicker() {
+      const panel = document.getElementById('dayPicker');
+      if (!panel) return;
+      // Sync fields to current view before showing
+      const displayDate = indexToDisplayDate(currentIndex);
+      const dayNum = indexToDayNum(currentIndex);
+      const pickerDate = document.getElementById('pickerDate');
+      const pickerDayNum = document.getElementById('pickerDayNum');
+      if (pickerDate) pickerDate.value = toISODate(displayDate);
+      if (pickerDayNum) pickerDayNum.value = String(dayNum);
+      panel.classList.add('open');
+      panel.setAttribute('aria-hidden', 'false');
+    }
+
+    function toggleDayPicker() {
+      const panel = document.getElementById('dayPicker');
+      if (panel && panel.classList.contains('open')) closeDayPicker();
+      else openDayPicker();
+    }
+
+    function jumpToIndex(index) {
+      if (typeof stopSpeaking === 'function') stopSpeaking();
+      currentIndex = ((index % devotions.length) + devotions.length) % devotions.length;
+      closeDayPicker();
+      render();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function jumpFromDateInput() {
+      const val = document.getElementById('pickerDate').value;
+      if (!val) return;
+      // Parse as local date to avoid UTC shift
+      const parts = val.split('-').map(Number);
+      const chosen = new Date(parts[0], parts[1] - 1, parts[2]);
+      jumpToIndex(getDayOfYear(chosen) % devotions.length);
+    }
+
+    function jumpFromDayNum() {
+      const raw = document.getElementById('pickerDayNum').value;
+      jumpToIndex(dayNumToIndex(raw));
+    }
+
 
     function showToast(msg) {
       const t = document.getElementById('toast');
@@ -6250,21 +6447,52 @@
     // Stop speech when changing days
     const _origRender = typeof render === 'function' ? null : null;
 
-        // Event listeners
+    // Event listeners
     document.getElementById('prevBtn').addEventListener('click', () => {
+      closeDayPicker();
       currentIndex = (currentIndex - 1 + devotions.length) % devotions.length;
       render();
     });
 
     document.getElementById('nextBtn').addEventListener('click', () => {
+      closeDayPicker();
       currentIndex = (currentIndex + 1) % devotions.length;
       render();
     });
 
     document.getElementById('todayBtn').addEventListener('click', () => {
+      closeDayPicker();
       currentIndex = getDayOfYear(new Date()) % devotions.length;
       render();
       showToast('Returned to today');
+    });
+
+    // Date line → day picker
+    const dateDisplay = document.getElementById('dateDisplay');
+    dateDisplay.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleDayPicker();
+    });
+    dateDisplay.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleDayPicker();
+      }
+    });
+
+    document.getElementById('pickerDateGo').addEventListener('click', jumpFromDateInput);
+    document.getElementById('pickerDayGo').addEventListener('click', jumpFromDayNum);
+    document.getElementById('pickerDate').addEventListener('change', jumpFromDateInput);
+    document.getElementById('pickerDayNum').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') jumpFromDayNum();
+    });
+
+    // Close picker when tapping outside
+    document.addEventListener('click', (e) => {
+      const panel = document.getElementById('dayPicker');
+      if (!panel || !panel.classList.contains('open')) return;
+      if (panel.contains(e.target) || dateDisplay.contains(e.target)) return;
+      closeDayPicker();
     });
 
     document.getElementById('favBtn').addEventListener('click', toggleFavorite);
@@ -6285,7 +6513,6 @@
       }
     });
 
-
     // Voice controls
     if (window.speechSynthesis) {
       populateVoices();
@@ -6304,8 +6531,7 @@
     document.getElementById('nextBtn').addEventListener('click', stopSpeaking);
     document.getElementById('todayBtn').addEventListener('click', stopSpeaking);
 
-
-        // Register service worker for offline use (when served over http/https)
+    // Register service worker for offline use (when served over http/https)
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('./sw.js').catch(() => {});
     }
@@ -6315,3 +6541,4 @@
   </script>
 </body>
 </html>
+
